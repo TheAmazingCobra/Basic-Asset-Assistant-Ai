@@ -1,0 +1,40 @@
+{
+    "name": "BAAA.Simplifier",
+    "rootNamespace": "BAAA.Simplifier",
+    "references": [
+        "Unity.Burst",
+        "Unity.Collections",
+        "Unity.Mathematics"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "BAAA_SIMPLIFIER_BURST",
+        "BAAA_SIMPLIFIER_COLLECTIONS",
+        "BAAA_SIMPLIFIER_MATHEMATICS"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.burst",
+            "expression": "[1.8.0,2.0.0)",
+            "define": "BAAA_SIMPLIFIER_BURST"
+        },
+        {
+            "name": "com.unity.collections",
+            "expression": "[2.1.0,3.0.0)",
+            "define": "BAAA_SIMPLIFIER_COLLECTIONS"
+        },
+        {
+            "name": "com.unity.mathematics",
+            "expression": "[1.2.6,2.0.0)",
+            "define": "BAAA_SIMPLIFIER_MATHEMATICS"
+        }
+    ],
+    "noEngineReferences": false
+}

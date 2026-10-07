@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-labelledby="title">
+<title id="title">A goat saying BAAA</title>
+<defs>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFD600" stop-opacity="0.14"/>
+    <stop offset="1" stop-color="#FFD600" stop-opacity="0"/>
+  </radialGradient>
+  <clipPath id="frame"><rect width="1280" height="400" rx="28"/></clipPath>
+</defs>
+<g clip-path="url(#frame)">
+  <rect width="1280" height="400" fill="#0F0F10"/>
+  <circle cx="520" cy="200" r="250" fill="url(#glow)"/>
+  <path d="M 300 87 L 302.22 92.94 L 308.56 93.22 L 303.59 97.17 L 305.29 103.28 L 300 99.78 L 294.71 103.28 L 296.41 97.17 L 291.44 93.22 L 297.78 92.94 Z" fill="#FFD600" opacity="0.55"/>
+  <path d="M 1010 289 L 1012.72 296.26 L 1020.46 296.6 L 1014.39 301.43 L 1016.47 308.9 L 1010 304.62 L 1003.53 308.9 L 1005.61 301.43 L 999.54 296.6 L 1007.28 296.26 Z" fill="#FFD600" opacity="0.5"/>
+  <path d="M 1110 111 L 1111.73 115.62 L 1116.66 115.84 L 1112.8 118.91 L 1114.11 123.66 L 1110 120.94 L 1105.89 123.66 L 1107.2 118.91 L 1103.34 115.84 L 1108.27 115.62 Z" fill="#FFD600" opacity="0.35"/>
+  <path d="M 205 284 L 206.48 287.96 L 210.71 288.15 L 207.4 290.78 L 208.53 294.85 L 205 292.52 L 201.47 294.85 L 202.6 290.78 L 199.29 288.15 L 203.52 287.96 Z" fill="#FFD600" opacity="0.35"/>
+  <path d="M 880 325 L 881.23 328.3 L 884.76 328.45 L 882 330.65 L 882.94 334.05 L 880 332.1 L 877.06 334.05 L 878 330.65 L 875.24 328.45 L 878.77 328.3 Z" fill="#FFD600" opacity="0.3"/>
+  
+  <g transform="translate(520 205)">
+    <path d="M -56 40 C -62 120 -84 190 -96 260 L 96 260 C 84 190 62 120 56 40 Z" fill="#D9D2C1"/>
+    <path d="M -46 -84 C -58 -118 -72 -150 -98 -170 C -66 -150 -28 -132 -12 -98 Z" fill="#A69E8C"/>
+    <path d="M 46 -84 C 58 -118 72 -150 98 -170 C 66 -150 28 -132 12 -98 Z" fill="#A69E8C"/>
+    <path d="M -53.4 -109.9 Q -41 -110 -29.8 -119.9" fill="none" stroke="#7E7768" stroke-width="3" stroke-linecap="round"/><path d="M 53.4 -109.9 Q 41 -110 29.8 -119.9" fill="none" stroke="#7E7768" stroke-width="3" stroke-linecap="round"/>
+    <path d="M -65.4 -132.8 Q -57 -133 -50.4 -138.8" fill="none" stroke="#7E7768" stroke-width="3" stroke-linecap="round"/><path d="M 65.4 -132.8 Q 57 -133 50.4 -138.8" fill="none" stroke="#7E7768" stroke-width="3" stroke-linecap="round"/>
+    <path d="M -80.1 -152.6 Q -77 -153 -74.2 -154.9" fill="none" stroke="#7E7768" stroke-width="3" stroke-linecap="round"/><path d="M 80.1 -152.6 Q 77 -153 74.2 -154.9" fill="none" stroke="#7E7768" stroke-width="3" stroke-linecap="round"/>
+    <g transform="rotate(-22 -118 -14)"><ellipse cx="-118" cy="-14" rx="50" ry="17" fill="#F2EEE4"/><ellipse cx="-114" cy="-13" rx="34" ry="8" fill="#D7B6A6"/></g>
+    <g transform="rotate(22 118 -14)"><ellipse cx="118" cy="-14" rx="50" ry="17" fill="#F2EEE4"/><ellipse cx="114" cy="-13" rx="34" ry="8" fill="#D7B6A6"/></g>
+    <path d="M 0 -108 C 52 -108 84 -78 84 -36 C 84 0 70 30 60 62 C 52 92 32 112 0 112 C -32 112 -52 92 -60 62 C -70 30 -84 0 -84 -36 C -84 -78 -52 -108 0 -108 Z" fill="#F2EEE4"/>
+    <clipPath id="headClip"><path d="M 0 -108 C 52 -108 84 -78 84 -36 C 84 0 70 30 60 62 C 52 92 32 112 0 112 C -32 112 -52 92 -60 62 C -70 30 -84 0 -84 -36 C -84 -78 -52 -108 0 -108 Z"/></clipPath>
+    <g clip-path="url(#headClip)">
+      <ellipse cx="-74" cy="20" rx="22" ry="52" fill="#E1DACA"/>
+      <ellipse cx="74" cy="20" rx="22" ry="52" fill="#E1DACA"/>
+      <ellipse cx="0" cy="72" rx="52" ry="40" fill="#E8E1D2"/>
+    </g>
+    <path d="M -24 100 C -20 128 -9 150 0 172 C 9 150 20 128 24 100 Z" fill="#FAF8F3"/>
+    <path d="M -9 116 Q -5 140 0 160 M 9 116 Q 5 140 0 160" fill="none" stroke="#D6CFBF" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 0 -78 L 3.53 -68.85 L 13.31 -68.33 L 5.71 -62.15 L 8.23 -52.67 L 0 -58 L -8.23 -52.67 L -5.71 -62.15 L -13.31 -68.33 L -3.53 -68.85 Z" fill="#FFD600"/>
+    
+    <ellipse cx="-40" cy="-18" rx="18" ry="15" fill="#FFD600" stroke="#17171A" stroke-width="3"/>
+    <rect x="-52" y="-22" width="24" height="8" rx="4" fill="#17171A"/>
+    <circle cx="-46" cy="-26" r="3" fill="#FFFFFF" opacity="0.9"/>
+    <path d="M -24 -42 Q -38 -47 -54 -40" fill="none" stroke="#E1DACA" stroke-width="5" stroke-linecap="round"/>
+    
+    <ellipse cx="40" cy="-18" rx="18" ry="15" fill="#FFD600" stroke="#17171A" stroke-width="3"/>
+    <rect x="28" y="-22" width="24" height="8" rx="4" fill="#17171A"/>
+    <circle cx="34" cy="-26" r="3" fill="#FFFFFF" opacity="0.9"/>
+    <path d="M 24 -42 Q 38 -47 54 -40" fill="none" stroke="#E1DACA" stroke-width="5" stroke-linecap="round"/>
+    <ellipse cx="-17" cy="58" rx="6.5" ry="4" transform="rotate(-28 -17 58)" fill="#3B3630"/>
+    <ellipse cx="17" cy="58" rx="6.5" ry="4" transform="rotate(28 17 58)" fill="#3B3630"/>
+    <ellipse cx="0" cy="86" rx="12" ry="9" fill="#3B3630"/>
+    <ellipse cx="0" cy="91" rx="7" ry="3.6" fill="#D98282"/>
+  </g>
+  
+  <path d="M 762 156 L 668 250 L 806 164 Z" fill="#FFD600"/>
+  <rect x="730" y="62" width="252" height="104" rx="26" fill="#FFD600"/>
+  <text x="856" y="137" text-anchor="middle" font-family="'Arial Black', 'Segoe UI Black', Impact, 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="62" letter-spacing="2" fill="#0F0F10">BAAA!</text>
+</g>
+<rect x="1" y="1" width="1278" height="398" rx="27" fill="none" stroke="#26262A" stroke-width="2"/>
+</svg>

@@ -1,0 +1,1150 @@
+# BAAA, 日本語
+# Each "en:" line is the English the window asks for, and the "tr:" line under it is what it shows.
+# Keep {0}, {1} and the *stars* where they are. \n is a new line. A line missing here shows in English.
+language: 日本語
+short: 日本語
+code: ja
+culture: ja-JP
+quotes: 「」
+list: 、
+space: none
+
+# AssistantAtlas.cs
+en: Too many materials to fit in one atlas.
+tr: マテリアルが多すぎて、1枚のアトラスに収まりません。
+
+# AssistantCheck.cs
+en: Your project has script errors
+tr: プロジェクトにスクリプトエラーがあります
+en: Unity can't upload until they're fixed. They're the red errors in the Console, often from another tool.
+tr: 直すまでUnityからアップロードできません。Consoleに出ている赤いエラーで、ほかのツールが原因のこともよくあります。
+en: Open the Console
+tr: Consoleを開く
+en: VRCFury is in this project twice
+tr: VRCFuryがプロジェクトに2つあります
+en: Two copies break it. Delete the one in {0} and keep the one from the Creator Companion.
+tr: 2つあると正しく動きません。{0}にある方を削除し、Creator Companionの方を残してください。
+en: Poiyomi is in this project twice
+tr: Poiyomiがプロジェクトに2つあります
+en: Two copies can break its shaders. Delete the one in {0} and keep the one from the Creator Companion.
+tr: 2つあるとシェーダーが壊れることがあります。{0}にある方を削除し、Creator Companionの方を残してください。
+en: This outfit won't upload
+tr: この衣装はアップロードされません
+en: It's tagged EditorOnly, and the copy that stood in for it is gone.
+tr: EditorOnlyタグが付いていますが、代わりのコピーがなくなっています。
+en: Show it again
+tr: 再表示する
+en: No color slider
+tr: カラースライダーがありません
+en: Most outfits have one. Reimporting the pack brings it back.
+tr: ほとんどの衣装に付いています。パッケージを再インポートすると戻ります。
+en: This outfit doesn't match your avatar's bones
+tr: この衣装はアバターのボーンと合っていません
+en: Only {0} of its {1} body bones match {2}. It's probably made for a different base, or a different version of yours.
+tr: 体のボーン{1}本のうち、{2}と一致するのは{0}本だけです。別の素体用か、お使いの素体の別バージョン用のようです。
+en: {0} has no menu icon
+tr: {0}にメニューアイコンがありません
+en: The icon file is missing. The slider still works.
+tr: アイコンのファイルがありません。スライダー自体は使えます。
+en: The icon file is missing. The toggle still works.
+tr: アイコンのファイルがありません。トグル自体は使えます。
+en: The object it switches was deleted.
+tr: 切り替えるオブジェクトが削除されています。
+en: Its object slot is empty.
+tr: オブジェクト欄が空です。
+en: Slider {0} has nothing to switch
+tr: スライダー{0}の切り替え対象がありません
+en: Toggle {0} has nothing to switch
+tr: トグル{0}の切り替え対象がありません
+en: The mesh with {0} was deleted or never set.
+tr: {0}を持つメッシュが削除されたか、設定されていません。
+en: {0} isn't on {1}
+tr: {1}に{0}がありません
+en: {0} doesn't have that blendshape. The rest still works.
+tr: {0}にはそのブレンドシェイプがありません。ほかはそのまま動きます。
+en: Your avatar has no {0} blendshape
+tr: アバターにブレンドシェイプ{0}がありません
+en: Slider {0} uses it on the body. Your avatar base might be a different version.
+tr: スライダー{0}が体のこのブレンドシェイプを使っています。素体のバージョンが違うかもしれません。
+en: Toggle {0} uses it on the body. Your avatar base might be a different version.
+tr: トグル{0}が体のこのブレンドシェイプを使っています。素体のバージョンが違うかもしれません。
+en: Slider {0} points at a mesh that's gone
+tr: スライダー{0}の参照先メッシュがありません
+en: Toggle {0} points at a mesh that's gone
+tr: トグル{0}の参照先メッシュがありません
+en: The mesh it recolors was deleted or never set.
+tr: 色を変えるメッシュが削除されたか、設定されていません。
+en: Slider {0} won't work
+tr: スライダー{0}が動作しません
+en: Toggle {0} won't work
+tr: トグル{0}が動作しません
+en: The material {0} was renamed or copied, so the setting is now called {1}. Rename it back or use the pack's material.
+tr: マテリアル{0}の名前が変わったかコピーされたため、設定名が{1}になっています。名前を戻すか、付属のマテリアルを使ってください。
+en: The material {0} was locked too early. Unlock it in Poiyomi and lock it again.
+tr: マテリアル{0}が早すぎるタイミングでロックされています。Poiyomiでロックを解除して、もう一度ロックしてください。
+en: {0} on {1} isn't marked animated and renamed. Unlock it, right-click the setting, mark it, then lock again.
+tr: {1}の{0}がAnimatedとRenamedに設定されていません。ロックを解除し、設定を右クリックして指定してから、もう一度ロックしてください。
+en: No material on this outfit has {0}. A material was probably swapped.
+tr: この衣装のどのマテリアルにも{0}がありません。マテリアルが差し替えられたようです。
+en: {0} uses a different material now.
+tr: {0}のマテリアルが変わっています。
+en: {0} pieces use a different material now.
+tr: {0}個のパーツのマテリアルが変わっています。
+en: Put the pack's material back
+tr: パッケージのマテリアルに戻す
+en: Put the pack's materials back
+tr: パッケージのマテリアルに戻す
+en: A blendshape link is empty
+tr: BlendShape Linkが空です
+en: It has no meshes in it.
+tr: メッシュが1つも入っていません。
+en: A blendshape link has no body to follow
+tr: BlendShape Linkに追従先の体がありません
+en: It doesn't say which avatar mesh to follow.
+tr: どのアバターメッシュに追従するか指定されていません。
+en: A blendshape link points at a mesh that's gone
+tr: BlendShape Linkの参照先メッシュがありません
+en: One of its meshes was deleted.
+tr: メッシュの1つが削除されています。
+en: Can't find {0} on your avatar
+tr: アバターに{0}が見つかりません
+en: A blendshape link follows a mesh called {0}, and {1} doesn't have one. Pick your body mesh.
+tr: BlendShape Linkが{0}というメッシュに追従していますが、{1}にはありません。体のメッシュを選んでください。
+en: {2} blendshape links follow a mesh called {0}, and {1} doesn't have one. Pick your body mesh.
+tr: {2}個のBlendShape Linkが{0}というメッシュに追従していますが、{1}にはありません。体のメッシュを選んでください。
+en: Pick your body mesh
+tr: 体のメッシュを選ぶ
+en: {0}  ({1} blendshapes)
+tr: {0}  (ブレンドシェイプ{1}個)
+en: {0} doesn't follow your body sliders
+tr: {0}が体のスライダーに追従しません
+en: It has {0} body blendshapes but no blendshape link.
+tr: 体のブレンドシェイプが{0}個ありますが、BlendShape Linkがありません。
+en: Add a blendshape link
+tr: BlendShape Linkを追加
+en: One of its blendshapes is called {0} instead of {1}, so it doesn't follow the matching blendshape on {2}.
+tr: ブレンドシェイプの1つが{1}ではなく{0}という名前のため、{2}の対応するブレンドシェイプに追従しません。
+en: One of its blendshapes is called {0} instead of {1}, so it doesn't follow the matching blendshape on your body.
+tr: ブレンドシェイプの1つが{1}ではなく{0}という名前のため、体の対応するブレンドシェイプに追従しません。
+en: {3} of its blendshapes have a prefix, like {0} instead of {1}, so they don't follow the matching blendshapes on {2}.
+tr: {3}個のブレンドシェイプに接頭辞が付いていて ({1}ではなく{0}など)、{2}の対応するブレンドシェイプに追従しません。
+en: {2} of its blendshapes have a prefix, like {0} instead of {1}, so they don't follow the matching blendshapes on your body.
+tr: {2}個のブレンドシェイプに接頭辞が付いていて ({1}ではなく{0}など)、体の対応するブレンドシェイプに追従しません。
+en: {0} has blendshapes with a stray prefix
+tr: {0}のブレンドシェイプに余計な接頭辞があります
+en: Broken link in {0}
+tr: {0}の参照切れ
+en: Something it points at on {0} was deleted ({1}).
+tr: {0}の参照先が削除されています ({1})。
+en: Restore from the pack
+tr: パッケージから復元
+en: Bring back {0}
+tr: {0}を復元
+en: VRCFury component
+tr: VRCFuryコンポーネント
+en: VRCFury isn't installed
+tr: VRCFuryがインストールされていません
+en: This outfit runs on VRCFury. Add it with the VRChat Creator Companion.
+tr: この衣装はVRCFuryで動いています。VRChat Creator Companionで追加してください。
+en: Get VRCFury
+tr: VRCFuryを入手
+en: Poiyomi isn't installed
+tr: Poiyomiがインストールされていません
+en: Some materials need Poiyomi Toon and show up pink without it.
+tr: 一部のマテリアルにはPoiyomi Toonが必要で、ないとピンク色になります。
+en: Get Poiyomi
+tr: Poiyomiを入手
+en: Show the outfit again
+tr: 衣装を再表示
+
+# AssistantColors.cs
+en: Change the default color
+tr: 初期の色を変更
+
+# AssistantColorsView.cs
+en: Colors
+tr: カラー
+en: Pick your *colors*
+tr: *色*を選ぶ
+en: Choose the color it loads in. Drag a slider to see it on your avatar.
+tr: 最初に表示される色を選べます。スライダーを動かすとアバターで確認できます。
+en: VRCFury isn't installed, so this outfit's color changers can't be read. The Check tab shows how to fix that.
+tr: VRCFuryがインストールされていないため、この衣装の色変更を読み取れません。直し方はチェックタブにあります。
+en: Looking at the color changers...
+tr: 色変更を確認中...
+en: This outfit has no color changers.
+tr: この衣装には色変更がありません。
+en: This is the pack's own prefab. Put the outfit in your scene to change its colors.
+tr: これはパッケージ内のプレハブです。色を変えるには衣装をシーンに置いてください。
+en: Colors are changed on outfits in your scene, not on the pack's own prefab.
+tr: 色はパッケージ内のプレハブではなく、シーン上の衣装で変えます。
+en: You can still change them from your menu in VRChat. The scene only shows them while this tab is open.
+tr: VRChatのメニューからも変えられます。シーンでのプレビューはこのタブを開いている間だけです。
+en: The colors are baked into this {0} version. Go back to the original to change them, then make it again.
+tr: この{0}版には色が焼き込まれています。変えるには元の衣装に戻してから作り直してください。
+en: Baked at {0}
+tr: {0}で固定
+en: Go back to the original
+tr: 元の衣装に戻す
+en: Loads in at {0}
+tr: 初期値: {0}
+en: Back to {0}
+tr: {0}に戻す
+en: Hue
+tr: 色相
+en: Saturation
+tr: 彩度
+en: Brightness
+tr: 明るさ
+en: Color
+tr: 色
+
+# AssistantCopies.cs
+en: Decimated
+tr: ポリゴン削減
+en: Fused
+tr: 結合
+en: Put the outfit in your scene first.
+tr: 先に衣装をシーンに置いてください。
+en: This is already a copy. Go back to the original first.
+tr: これはすでにコピーです。先に元の衣装に戻してください。
+en: VRCFury isn't installed, so this outfit's pieces can't be read. The Check tab shows how to fix that.
+tr: VRCFuryがインストールされていないため、この衣装のパーツを読み取れません。直し方はチェックタブにあります。
+en: VRChat's Quest shaders aren't in this project. Add the VRChat SDK with the Creator Companion first.
+tr: このプロジェクトにVRChatのQuest用シェーダーがありません。先にCreator CompanionでVRChat SDKを追加してください。
+en: Copying the outfit...
+tr: 衣装をコピー中...
+en: Copying the meshes...
+tr: メッシュをコピー中...
+en: Saving the {0} version...
+tr: {0}版を保存中...
+en: Unity couldn't save {0}.
+tr: Unityで{0}を保存できませんでした。
+en: Make {0} version
+tr: {0}版を作成
+en: Reducing triangles...
+tr: ポリゴンを削減中...
+en: Nothing on this outfit is showing, so there's nothing to fuse. Put some pieces back on in the Pieces tab.
+tr: 表示中のパーツがないため、結合するものがありません。パーツタブでパーツを戻してください。
+en: Packing the textures...
+tr: テクスチャをアトラス化中...
+en: Fusing the meshes...
+tr: メッシュを結合中...
+en: This outfit has no meshes to decimate.
+tr: この衣装にはポリゴン削減できるメッシュがありません。
+en: The original isn't next to this copy anymore, so it can't be made again.
+tr: 元の衣装がこのコピーと同じ場所にないため、作り直せません。
+
+# AssistantCopiesView.cs
+en: Toggles and color changers stop working. The colors you picked stay. Pick your pieces first. You can go back anytime.
+tr: トグルと色変更は使えなくなります。選んだ色はそのまま残ります。先にパーツを選んでください。いつでも元に戻せます。
+en: No toggles or color changers on Quest. The colors you picked stay. Pick your pieces first. Your PC version keeps everything.
+tr: Questではトグルと色変更は使えません。選んだ色はそのまま残ります。先にパーツを選んでください。PC版はすべてそのままです。
+en: This is an advanced setting and it can break your outfit. BAAA isn't responsible for outfit errors, so please don't ask the creator's support to fix them.
+tr: これは上級者向けの設定で、衣装が壊れることがあります。BAAAは衣装のエラーに責任を負わないため、制作者のサポートに修正を依頼しないでください。
+en: VRCFury optimizations
+tr: VRCFuryの最適化
+en: VRCFury isn't installed. The Check tab shows how to fix that.
+tr: VRCFuryがインストールされていません。直し方はチェックタブにあります。
+en: Put the outfit on your avatar to add these.
+tr: 追加するには衣装をアバターに着せてください。
+en: Looking at your avatar...
+tr: アバターを確認中...
+en: Not available
+tr: 利用不可
+en: On avatar
+tr: 追加済み
+en: To add
+tr: 未追加
+en: On by default
+tr: デフォルトで有効
+en: VRCFury handles parameter compression by itself now.
+tr: パラメーター圧縮は、今はVRCFuryが自動で行います。
+en: Apply VRCFury optimizations
+tr: VRCFuryの最適化を適用
+en: All optimizations are on
+tr: 最適化はすべて適用済み
+en: {0} go on {1}, in an object called {2}. They affect your whole avatar.
+tr: {0}を{1}の{2}というオブジェクトに追加します。アバター全体に影響します。
+en: {0} optimizer
+tr: 最適化{0}個
+en: {0} optimizers
+tr: 最適化{0}個
+en: Ctrl+Z removes them.
+tr: Ctrl+Zで取り除けます。
+en: Apply
+tr: 適用
+en: Cancel
+tr: キャンセル
+en: Fuser
+tr: フューザー
+en: One *mesh*
+tr: *メッシュ*を1つに
+en: Fuses the outfit into one mesh. Extreme also puts every texture on one atlas.
+tr: 衣装を1つのメッシュに結合します。Extremeはさらに全テクスチャを1枚のアトラスにまとめます。
+en: This is the {0} version. Go back to the original in the Quest tab to fuse it.
+tr: これは{0}版です。結合するには、Questタブで元の衣装に戻してください。
+en: This is the {0} version. Go back to the original in the Decimator tab to fuse it.
+tr: これは{0}版です。結合するには、ポリゴン削減タブで元の衣装に戻してください。
+en: Heads up
+tr: 注意
+en: At your own risk
+tr: 自己責任で
+en: Pick them in the Pieces tab.
+tr: パーツタブで選べます。
+en: Fused version
+tr: 結合版
+en: One mesh. Every material stays as it is.
+tr: メッシュ1つ。マテリアルはそのままです。
+en: Make fused version
+tr: 結合版を作る
+en: This can take a minute.
+tr: 少し時間がかかることがあります。
+en: Make it
+tr: 作る
+en: Extreme version
+tr: Extreme版
+en: One mesh and one material. Every texture goes on one atlas.
+tr: メッシュ1つとマテリアル1つ。全テクスチャを1枚のアトラスにまとめます。
+en: The Extreme version needs Poiyomi installed. The Check tab shows how to get it.
+tr: Extreme版にはPoiyomiのインストールが必要です。入手方法はチェックタブにあります。
+en: What changes
+tr: 変わること
+en: Every material fits on the atlas as it is.
+tr: すべてのマテリアルがそのままアトラスに収まります。
+en: Atlas size
+tr: アトラスサイズ
+en: 2K is the lightest, 8K the sharpest. The atlas only gets as big as it needs.
+tr: 2Kが最も軽く、8Kが最もきれいです。アトラスは必要以上に大きくなりません。
+en: Make Extreme version
+tr: Extreme版を作る
+en: Wearing {0} of {1}.
+tr: {1}のうち{0}個を着ています。
+en: {0} piece
+tr: パーツ{0}個
+en: {0} pieces
+tr: パーツ{0}個
+en: This is the pack's own prefab. Put the outfit in your scene first.
+tr: これはパッケージ内のプレハブです。先に衣装をシーンに置いてください。
+en: Copies are made from outfits in your scene, not from the pack's own prefab.
+tr: コピーはパッケージ内のプレハブではなく、シーン上の衣装から作ります。
+en: decimated
+tr: ポリゴン削減
+en: fused
+tr: 結合
+en: Advanced options
+tr: 上級者向けオプション
+en: I understand these are advanced options and support will NOT help me if I use them.
+tr: これらは上級者向けのオプションで、使った場合はサポートを受けられないことを理解しています。
+en: The Asset Assistant is a standalone helper and isn't included in my purchase. It was made to help new users.
+tr: Asset Assistantは独立した補助ツールで、購入した内容には含まれません。初心者の方を助けるために作られました。
+en: I understand
+tr: 了解しました
+en: Pop-ups reset
+tr: ポップアップをリセットしました
+en: The Asset Assistant will ask again in this project.
+tr: このプロジェクトでは、Asset Assistantがもう一度確認します。
+en: OK
+tr: OK
+en: Couldn't make the {0} version
+tr: {0}版を作れませんでした
+en: {0} version
+tr: {0}版
+en: Made from {0}
+tr: {0}から作成
+en: One mesh and one material, no toggles or color changers.
+tr: メッシュ1つとマテリアル1つ、トグルと色変更なし。
+en: One mesh with its materials as they were, no toggles or color changers.
+tr: マテリアルはそのままのメッシュ1つ、トグルと色変更なし。
+en: Quest shader, one mesh, no toggles. Go back before you upload for PC.
+tr: Quest用シェーダー、メッシュ1つ、トグルなし。PC用にアップロードする前に戻してください。
+en: Fewer triangles. Everything else still works.
+tr: ポリゴンを削減済み。ほかはすべてそのまま使えます。
+en: Out of date
+tr: 最新ではありません
+en: The pack was updated. Make it again to catch up.
+tr: パッケージが更新されました。作り直すと反映されます。
+en: Original missing
+tr: 元の衣装がありません
+en: The original isn't next to it anymore.
+tr: 元の衣装が同じ場所にありません。
+en: Make it again
+tr: 作り直す
+en: Couldn't make it again
+tr: 作り直せませんでした
+en: Go back to PC version
+tr: PC版に戻す
+en: Saved in {0}.
+tr: 保存先: {0}
+en: Before and after
+tr: 前後の比較
+en: Triangles
+tr: ポリゴン数
+en: Skinned meshes
+tr: スキンメッシュ
+en: Material slots
+tr: マテリアルスロット
+en: PhysBones
+tr: PhysBone
+en: Texture memory
+tr: テクスチャメモリ
+en: same
+tr: 変化なし
+en: Quest
+tr: Quest
+en: Ready for *Quest*
+tr: *Quest*対応
+en: Makes a Quest copy and swaps it in. Your PC version stays the same.
+tr: Quest用のコピーを作って入れ替えます。PC版はそのままです。
+en: This is the {0} version. Go back to the original in the Fuser tab to make a Quest version.
+tr: これは{0}版です。Quest版を作るには、フューザータブで元の衣装に戻してください。
+en: This is the {0} version. Go back to the original in the Decimator tab to make a Quest version.
+tr: これは{0}版です。Quest版を作るには、ポリゴン削減タブで元の衣装に戻してください。
+en: Quest version
+tr: Quest版
+en: One mesh, one atlas, VRChat's Quest shader.
+tr: メッシュ1つ、アトラス1枚、VRChatのQuest用シェーダー。
+en: 4K usually isn't recommended for Quest. It uses a lot of memory on a headset.
+tr: Questでは基本的に4Kはおすすめしません。ヘッドセットのメモリを多く使います。
+en: 1K is lighter, 2K is sharper. 4K usually isn't recommended for Quest.
+tr: 1Kは軽く、2Kはきれいです。Questでは基本的に4Kはおすすめしません。
+en: Physbones start off. Your base avatar needs its own Quest version too.
+tr: PhysBoneは最初オフです。素体アバター自体にもQuest版が必要です。
+en: Make Quest version
+tr: Quest版を作る
+en: Looking at the Quest version...
+tr: Quest版を確認中...
+en: limit {0}
+tr: 上限 {0}
+en: VRAM
+tr: VRAM
+en: These are Quest's Poor limits, body included. Quest hides Poor and Very Poor avatars by default, so lower is better.
+tr: 体を含めたQuestのPoorの上限です。QuestではPoorとVery Poorのアバターは初期設定で非表示なので、低いほど良いです。
+en: This outfit alone goes over a limit.
+tr: この衣装だけで上限を超えています。
+en: {0} of {1} triangles. Cut them down in the Decimator.
+tr: {0} / {1}ポリゴン。ポリゴン削減タブで減らせます。
+en: Open {0}
+tr: {0}を開く
+en: All off to start. Quest allows {0} for your whole avatar.
+tr: 最初はすべてオフです。Questではアバター全体で{0}個までです。
+en: This outfit has no physbones.
+tr: この衣装にはPhysBoneがありません。
+en: Other
+tr: その他
+en: Uploading for Quest
+tr: Questへのアップロード
+en: Android module missing
+tr: Androidモジュールがありません
+en: Unity's Android module isn't installed, and Quest uploads need it. In Unity Hub, open Installs, click the gear next to {0} and add Android Build Support.
+tr: Questへのアップロードに必要な、UnityのAndroidモジュールが入っていません。Unity HubでInstallsを開き、{0}の横の歯車をクリックしてAndroid Build Supportを追加してください。
+en: Upload your PC version first.
+tr: まずPC版をアップロードします。
+en: Make the Quest version here. It swaps in for this outfit.
+tr: ここでQuest版を作ります。この衣装と入れ替わります。
+en: Switch Unity to Android (File, Build Settings) and upload the same avatar again.
+tr: UnityをAndroidに切り替えて (File, Build Settings)、同じアバターをもう一度アップロードします。
+en: Go back to the PC version before your next PC upload.
+tr: 次にPC用をアップロードする前に、PC版に戻します。
+
+# AssistantDecimate.cs
+en: Fused mesh
+tr: 結合メッシュ
+en: Measuring {0}...
+tr: {0}を計測中...
+en: Make a decimated version first.
+tr: 先にポリゴン削減版を作ってください。
+en: This copy was made before the decimator kept its full-detail meshes. Make it again first.
+tr: このコピーは古い形式で作られていて、削減前のメッシュが残っていません。先に作り直してください。
+en: Reducing {0}...
+tr: {0}を削減中...
+en: Only Extreme and Quest versions have textures of their own to bake.
+tr: 焼き直せる専用テクスチャがあるのはExtreme版とQuest版だけです。
+en: Cut some triangles first.
+tr: 先にポリゴンを減らしてください。
+en: The fused mesh isn't in this copy anymore. Make it again first.
+tr: このコピーには結合メッシュがもうありません。先に作り直してください。
+en: This version has no textures of its own to bake.
+tr: このバージョンには焼き直せる専用テクスチャがありません。
+en: Baking {0}...
+tr: {0}を焼き込み中...
+
+# AssistantDecimatorView.cs
+en: Decimator
+tr: ポリゴン削減
+en: Fewer *triangles*
+tr: *ポリゴン*を減らす
+en: Fewer triangles. Toggles, color changers and pieces keep working.
+tr: ポリゴンを減らしても、トグル、色変更、パーツはそのまま使えます。
+en: Decimated version
+tr: ポリゴン削減版
+en: Makes a copy and swaps it in. You can go back anytime.
+tr: コピーを作って入れ替えます。いつでも元に戻せます。
+en: Pieces you took off stay off.
+tr: 外したパーツは外したままです。
+en: Make decimated version
+tr: ポリゴン削減版を作る
+en: Makes a copy of {0} and swaps it in. Nothing changes until you move the slider.
+tr: {0}のコピーを作って入れ替えます。スライダーを動かすまで何も変わりません。
+en: Drag to cut triangles. Everything else keeps working.
+tr: ドラッグでポリゴンを減らせます。ほかはすべてそのまま使えます。
+en: Drag to cut triangles on the fused mesh.
+tr: ドラッグで結合メッシュのポリゴンを減らせます。
+en: Looking at the meshes...
+tr: メッシュを確認中...
+en: Make it again first
+tr: 先に作り直してください
+en: It was made before the decimator kept full-detail meshes.
+tr: 古い形式で作られていて、削減前のメッシュが残っていません。
+en: At full detail
+tr: 削減前
+en: Kept
+tr: 残り
+en: Keep {0} triangles
+tr: {0}ポリゴンを残す
+en: Updating
+tr: 更新中
+en: Updates as you drag. Too low looks blocky. Drag back up anytime.
+tr: ドラッグに合わせて更新されます。下げすぎるとカクカクになります。いつでも上げ直せます。
+en: The cut goes where it shows least. Meshes under {0} triangles stay as they are.
+tr: 目立たないところから削ります。{0}ポリゴン未満のメッシュはそのままです。
+en: Meshes
+tr: メッシュ
+en: Fit under {0}
+tr: {0}以下に収める
+en: Fits at full detail, body included.
+tr: 体を含めて、削減なしで収まっています。
+en: Counts the whole avatar, body included.
+tr: 体を含めたアバター全体で数えます。
+en: The rest of the avatar already has {0} triangles.
+tr: アバターの残りの部分だけで、すでに{0}ポリゴンあります。
+en: {0} triangles, too small to cut
+tr: {0}ポリゴン、小さいので削減しません
+en: {0} of {1} triangles
+tr: {0} / {1}ポリゴン
+en: Auto
+tr: 自動
+en: Keep all
+tr: すべて残す
+en: Custom
+tr: カスタム
+en: Keep {0}
+tr: {0}を残す
+en: Re-bake textures
+tr: テクスチャを焼き直す
+en: Bakes the full-detail look onto fewer triangles, so prints and seams stay put. Takes a moment.
+tr: 削減前の見た目を少ないポリゴンに焼き込み、柄や縫い目の位置を保ちます。少し時間がかかります。
+en: Baked for this triangle count. Moving the slider puts the plain textures back.
+tr: このポリゴン数用に焼き込み済みです。スライダーを動かすと通常のテクスチャに戻ります。
+en: Use the plain textures
+tr: 通常のテクスチャを使う
+en: Very Poor starts above {0} triangles on PC and {1} on Quest, body included.
+tr: 体を含めて、PCは{0}、Questは{1}ポリゴンを超えるとVery Poorです。
+
+# AssistantExtreme.cs
+en: matcap
+tr: マットキャップ
+en: second matcap
+tr: 2つ目のマットキャップ
+en: third matcap
+tr: 3つ目のマットキャップ
+en: fourth matcap
+tr: 4つ目のマットキャップ
+en: rim light
+tr: リムライト
+en: second rim light
+tr: 2つ目のリムライト
+en: cubemap
+tr: キューブマップ
+en: reflections
+tr: 反射
+en: clear coat
+tr: クリアコート
+en: glitter
+tr: グリッター
+en: detail texture
+tr: ディテールテクスチャ
+en: dissolve
+tr: ディゾルブ
+en: flipbook
+tr: フリップブック
+en: text
+tr: テキスト
+en: subsurface scattering
+tr: サブサーフェススキャタリング
+en: backlight
+tr: バックライト
+en: stylized specular
+tr: スタイライズドスペキュラー
+en: anisotropic shine
+tr: 異方性ハイライト
+en: environment rim
+tr: 環境リム
+en: {0} keeps its own material, it doesn't use Poiyomi.
+tr: {0}はPoiyomiを使っていないため、元のマテリアルのままです。
+en: {0} keeps its own material, it's see-through.
+tr: {0}は透明なため、元のマテリアルのままです。
+en: {0} keeps its own material, its decal can't go on the atlas.
+tr: {0}はデカールをアトラスに入れられないため、元のマテリアルのままです。
+en: {0} gets a second spot on the atlas for its decal.
+tr: {0}はデカール用にアトラス上でもう1枠使います。
+en: {0} gets {1} spots on the atlas for its decal.
+tr: {0}はデカール用にアトラス上で{1}枠使います。
+en: {0} loses its {1}.
+tr: {0}の{1}はなくなります。
+en: {0} loses its {1}, another part's is used instead.
+tr: {0}の{1}は、別のパーツのものに置き換わります。
+en: {0} gets the {1} too.
+tr: {0}にも{1}がかかります。
+
+# AssistantFeatures.cs
+en: {0} and {1}
+tr: {0}と{1}
+en: Turn features back on
+tr: 機能をオンに戻す
+en: Turn features off
+tr: 機能をオフにする
+
+# AssistantFeaturesView.cs
+en: Features
+tr: 機能
+en: Switch things *off*
+tr: 機能を*オフ*にする
+en: Turn off what you don't need.
+tr: 必要ないものをオフにできます。
+en: Turning things off can break parts of the outfit. Only turn off what you understand. Ctrl+Z undoes it.
+tr: オフにすると衣装の一部が動かなくなることがあります。わかるものだけオフにしてください。Ctrl+Zで元に戻せます。
+en: This is the pack's own prefab. Put the outfit in your scene to switch its features.
+tr: これはパッケージ内のプレハブです。機能を切り替えるには衣装をシーンに置いてください。
+en: Features are switched on outfits in your scene, not on the pack's own prefab.
+tr: 機能はパッケージ内のプレハブではなく、シーン上の衣装で切り替えます。
+en: Looking at the features...
+tr: 機能を確認中...
+en: Nothing to switch off on this outfit.
+tr: この衣装にはオフにできるものがありません。
+en: Color changers
+tr: 色変更
+en: {0} slider
+tr: スライダー{0}個
+en: {0} sliders
+tr: スライダー{0}個
+en: Sliders you turn off leave your menu and keep the shipped color.
+tr: オフにしたスライダーはメニューから消え、配布時の色のままになります。
+en: Other colors
+tr: その他の色
+en: The Quest version's physbones are picked in the Quest tab.
+tr: Quest版のPhysBoneはQuestタブで選びます。
+en: {0} physbone
+tr: PhysBone {0}個
+en: {0} physbones
+tr: PhysBone {0}個
+en: Without them, skirts, hair and tails stop moving. Open a group to switch single ones.
+tr: オフにするとスカートや髪、しっぽが揺れなくなります。グループを開くと1つずつ切り替えられます。
+en: Colliders
+tr: コライダー
+en: {0} collider
+tr: コライダー{0}個
+en: {0} colliders
+tr: コライダー{0}個
+en: Without them, moving parts can go through the body.
+tr: オフにすると、揺れるパーツが体を突き抜けることがあります。
+en: Contacts
+tr: コンタクト
+en: {0} contact
+tr: コンタクト{0}個
+en: {0} contacts
+tr: コンタクト{0}個
+en: Touch reactions stop working.
+tr: 触れたときの反応がなくなります。
+en: All
+tr: すべて
+en: {0},  {1} off
+tr: {0}のうち{1}個オフ
+
+# AssistantHierarchy.cs
+en: Asset Assistant: {0} things to look at
+tr: Asset Assistant: 確認事項 {0}件
+en: Asset Assistant: 1 thing to look at
+tr: Asset Assistant: 確認事項 1件
+en: Asset Assistant: {0} version, no support
+tr: Asset Assistant: {0}版、サポート対象外
+en: Asset Assistant: all good
+tr: Asset Assistant: 問題なし
+
+# AssistantOptimizers.cs
+en: Bakes in blendshapes that never move. Saves memory.
+tr: 動かないブレンドシェイプを焼き込みます。メモリを節約できます。
+en: Merges toggle layers into one blend tree, so the animator does less work each frame.
+tr: トグルのレイヤーを1つのブレンドツリーにまとめ、毎フレームのアニメーターの処理を減らします。
+en: Gives every mesh the same light anchor, so your whole avatar is lit evenly.
+tr: 全メッシュのAnchor Overrideをそろえて、アバター全体を均一に照らします。
+
+# AssistantPieces.cs
+en: Take off {0}
+tr: {0}を外す
+en: Put back {0}
+tr: {0}を戻す
+en: Put everything back
+tr: すべて戻す
+
+# AssistantPiecesView.cs
+en: Pieces
+tr: パーツ
+en: Wear what you *want*
+tr: *着たい*ものを着る
+en: Click a piece to take it off. Click again to put it back. Pieces you take off aren't uploaded, so your avatar is more optimized. Pieces you keep are uploaded with their toggle.
+tr: パーツをクリックすると外せます。もう一度クリックすると戻ります。外したパーツはアップロードされないので、アバターの軽量化になります。残したパーツはトグル付きでアップロードされます。
+en: This is the {0} version. Go back to the original to change its pieces.
+tr: これは{0}版です。パーツを変えるには元の衣装に戻してください。
+en: Looking at the pieces...
+tr: パーツを確認中...
+en: This outfit has no pieces that switch on and off.
+tr: この衣装には切り替えできるパーツがありません。
+en: This is the pack's own prefab. Put the outfit in your scene to pick its pieces.
+tr: これはパッケージ内のプレハブです。パーツを選ぶには衣装をシーンに置いてください。
+en: Pieces are picked on outfits in your scene, not on the pack's own prefab.
+tr: パーツはパッケージ内のプレハブではなく、シーン上の衣装で選びます。
+en: Off
+tr: オフ
+en: {0} is off and won't upload.
+tr: {0}はオフなので、アップロードされません。
+en: Click to put it back.
+tr: クリックで戻せます。
+en: {0} costs {1}.
+tr: {0}の負荷は{1}です。
+en: Click to take it off.
+tr: クリックで外せます。
+en: {0}, {1} off.
+tr: {0}のうち{1}個がオフです。
+en: Taking them off saves {0}.
+tr: 外したことで{0}を節約しています。
+en: Point at a piece to see what it costs.
+tr: パーツにカーソルを合わせると負荷が見られます。
+en: {0} skinned mesh
+tr: スキンメッシュ{0}個
+en: {0} skinned meshes
+tr: スキンメッシュ{0}個
+en: {0} mesh
+tr: メッシュ{0}個
+en: {0} meshes
+tr: メッシュ{0}個
+en: {0} triangle
+tr: {0}ポリゴン
+en: {0} triangles
+tr: {0}ポリゴン
+en: {0} material slot
+tr: マテリアルスロット{0}個
+en: {0} material slots
+tr: マテリアルスロット{0}個
+en: Head
+tr: 頭
+en: Neck
+tr: 首
+en: Torso
+tr: 胴体
+en: Hips
+tr: 腰
+en: Tail
+tr: しっぽ
+en: Arms
+tr: 腕
+en: Hands
+tr: 手
+en: Legs
+tr: 脚
+en: Feet
+tr: 足
+en: Extras
+tr: その他
+
+# AssistantRank.cs
+en: Basic meshes
+tr: 通常メッシュ
+en: Bones moved by PhysBones
+tr: PhysBoneで動くボーン
+en: PhysBone colliders
+tr: PhysBoneコライダー
+en: Constraints
+tr: コンストレイント
+en: Animators
+tr: アニメーター
+en: Bones
+tr: ボーン
+en: Lights
+tr: ライト
+en: Particle systems
+tr: パーティクルシステム
+en: Trail renderers
+tr: トレイルレンダラー
+en: Line renderers
+tr: ラインレンダラー
+en: Cloths
+tr: クロス
+en: Physics colliders
+tr: 物理コライダー
+en: Rigidbodies
+tr: リジッドボディ
+en: Audio sources
+tr: オーディオソース
+
+# AssistantScan.cs
+en: missing shader (shows pink)
+tr: シェーダーなし (ピンク表示)
+en: {0} (locked)
+tr: {0} (ロック済み)
+en: {0} constraint
+tr: コンストレイント{0}個
+en: {0} constraints
+tr: コンストレイント{0}個
+en: {0} particle system
+tr: パーティクルシステム{0}個
+en: {0} particle systems
+tr: パーティクルシステム{0}個
+en: {0} light
+tr: ライト{0}個
+en: {0} lights
+tr: ライト{0}個
+en: {0} audio source
+tr: オーディオソース{0}個
+en: {0} audio sources
+tr: オーディオソース{0}個
+en: {0} cloth
+tr: クロス{0}個
+en: {0} cloths
+tr: クロス{0}個
+en: {0} trail or line renderer
+tr: トレイル・ラインレンダラー{0}個
+en: {0} trail or line renderers
+tr: トレイル・ラインレンダラー{0}個
+
+# AssistantScope.cs
+en: {0} on {1}
+tr: {0} ({1}に着用)
+en: {0} (not on an avatar)
+tr: {0} (アバター未着用)
+en: {0} (editing the prefab)
+tr: {0} (プレハブ編集中)
+en: {0} (pack file)
+tr: {0} (パッケージ内のファイル)
+
+# AssistantTextures.cs
+en: as shipped
+tr: 配布時のまま
+en: Low ({0}K)
+tr: 低画質 ({0}K)
+en: Medium ({0}K)
+tr: 中画質 ({0}K)
+en: High ({0}K)
+tr: 高画質 ({0}K)
+en: textures {0}
+tr: テクスチャは{0}
+en: normal maps {0}
+tr: ノーマルマップは{0}
+en: roughness maps {0}
+tr: ラフネスマップは{0}
+en: metallic maps {0}
+tr: メタリックマップは{0}
+en: menu icons {0}
+tr: メニューアイコンは{0}
+en: mixed compression
+tr: 圧縮は混在
+en: {0} compression
+tr: 圧縮は{0}
+en: default
+tr: デフォルト
+en: mixed
+tr: 混在
+en: changed
+tr: 変更済み
+en: Changing texture quality
+tr: テクスチャ画質を変更中
+en: Restoring textures as shipped
+tr: テクスチャを配布時の状態に復元中
+en: {0}  ({1} of {2})
+tr: {0}  ({1} / {2})
+
+# BaaaWindow.cs
+en: Check
+tr: チェック
+en: Perf Scanner
+tr: 負荷スキャン
+en: Performance
+tr: 軽量化
+en: VRCFury
+tr: VRCFury
+en: Default
+tr: デフォルト
+en: Low · 1K
+tr: 低画質 · 1K
+en: Medium · 2K
+tr: 中画質 · 2K
+en: High · 4K
+tr: 高画質 · 4K
+en: Low · 64
+tr: 低画質 · 64
+en: Medium · 256
+tr: 中画質 · 256
+en: High · 512
+tr: 高画質 · 512
+en: Low
+tr: 低品質
+en: Normal
+tr: 標準
+en: High
+tr: 高品質
+en: Asset Assistant
+tr: Asset Assistant
+en: No outfits *yet*
+tr: 衣装は*まだ*ありません
+en: Looking for outfits...
+tr: 衣装を検索中...
+en: Put an outfit on your avatar and it'll show up here.
+tr: 衣装をアバターに入れると、ここに表示されます。
+en: Make it *lighter*
+tr: *軽く*する
+en: Texture sizes and compression.
+tr: テクスチャのサイズと圧縮。
+en: Built-in *optimizers*
+tr: 内蔵の*最適化*
+en: They come with VRCFury and work on your whole avatar when you upload.
+tr: VRCFuryに付属していて、アップロード時にアバター全体に効きます。
+en: {0} problem
+tr: {0}件の問題
+en: {0} problems
+tr: {0}件の問題
+en: Outfit
+tr: 衣装
+en: Rescan
+tr: 再スキャン
+en: Outfit *health*
+tr: 衣装の*状態*
+en: Finds what's broken and fixes it.
+tr: 壊れているところを見つけて直します。
+en: This is the pack's own prefab. Put the outfit in your scene to fix things.
+tr: これはパッケージ内のプレハブです。直すには衣装をシーンに置いてください。
+en: Put the outfit on your avatar to check the body blendshapes too.
+tr: 衣装をアバターに着せると、体のブレンドシェイプもチェックできます。
+en: 1 thing to look at
+tr: 確認事項 1件
+en: {0} things to look at
+tr: 確認事項 {0}件
+en: Check again
+tr: 再チェック
+en: Copy project info
+tr: プロジェクト情報をコピー
+en: Copied.
+tr: コピーしました。
+en: Versions
+tr: バージョン
+en: This outfit was made with Poiyomi {0} and you have {1}, so the color sliders might look a little different.
+tr: この衣装はPoiyomi {0}で作られていますが、お使いのものは{1}です。カラースライダーの見た目が少し違うかもしれません。
+en: Big Poiyomi updates, like 9 to 10, can change how the color sliders look.
+tr: 9から10のようなPoiyomiの大型アップデートでは、カラースライダーの見た目が変わることがあります。
+en: {0} installed
+tr: {0}をインストール済み
+en: installed, version unknown
+tr: インストール済み (バージョン不明)
+en: not installed
+tr: 未インストール
+en: outfit saved with {0}
+tr: 衣装は{0}で保存
+en: outfit made with {0}
+tr: 衣装は{0}で制作
+en: All good
+tr: 問題なし
+en: Nothing's broken.
+tr: 壊れているところはありません。
+en: This is an automated check, so it can miss things.
+tr: 自動チェックなので、見落とすこともあります。
+en: Problem
+tr: 問題
+en: Warning
+tr: 警告
+en: Note
+tr: 情報
+en: Select
+tr: 選択
+en: Nothing to pick from on this avatar
+tr: このアバターには選べるものがありません
+en: What it *costs*
+tr: 衣装の*負荷*
+en: What this outfit adds to your avatar. Hidden pieces count too.
+tr: この衣装がアバターに加える負荷です。非表示のパーツも含みます。
+en: Scanning...
+tr: スキャン中...
+en: This outfit
+tr: この衣装
+en: estimated
+tr: 推定
+en: Put it on your avatar to see the bones it adds.
+tr: アバターに着せると、追加されるボーンが見られます。
+en: Geometry
+tr: メッシュ
+en: Mesh renderers
+tr: メッシュレンダラー
+en: {0} skinned, {1} static
+tr: スキン{0}、通常{1}
+en: Blendshapes
+tr: ブレンドシェイプ
+en: none
+tr: なし
+en: {0} on {1}, most on {2} ({3})
+tr: {1}に計{0}個、最多は{2}の{3}個
+en: Used by its meshes
+tr: メッシュで使用
+en: adds {0} to {1} and merges {2} into its own
+tr: {1}に{0}を追加、{2}本は既存のボーンに統合
+en: {0} new bone
+tr: 新しいボーン{0}本
+en: {0} new bones
+tr: 新しいボーン{0}本
+en: can't tell, there's no Armature Link to follow
+tr: 不明 (Armature Linkがありません)
+en: put it on your avatar to see
+tr: アバターに着せると表示されます
+en: After linking
+tr: リンク後
+en: {0}, moving {1}
+tr: {0}個、{1}を動かす
+en: {0} bone
+tr: ボーン{0}本
+en: {0} bones
+tr: ボーン{0}本
+en: Textures and VRAM
+tr: テクスチャとVRAM
+en: Estimated VRAM
+tr: 推定VRAM
+en: {0}  (textures {1}, meshes {2})
+tr: {0}  (テクスチャ {1}、メッシュ {2})
+en: Textures
+tr: テクスチャ
+en: {0}, the biggest at {1} px
+tr: {0}、最大{1} px
+en: {0} texture
+tr: テクスチャ{0}枚
+en: {0} textures
+tr: テクスチャ{0}枚
+en: Menu
+tr: メニュー
+en: Toggles
+tr: トグル
+en: can't read them without VRCFury
+tr: VRCFuryがないと読み取れません
+en: Other sliders
+tr: その他のスライダー
+en: Separate parts
+tr: 切り替えパーツ
+en: Shaders
+tr: シェーダー
+en: {0} material
+tr: マテリアル{0}個
+en: {0} materials
+tr: マテリアル{0}個
+en: Other components
+tr: その他のコンポーネント
+en: Components
+tr: コンポーネント
+en: VRChat rank
+tr: VRChatランク
+en: Your whole avatar with this outfit on. It's an estimate, VRCFury can change it a little when you upload.
+tr: この衣装を着たアバター全体のランクです。推定なので、アップロード時にVRCFuryによって少し変わることがあります。
+en: Put the outfit on your avatar to see its rank.
+tr: 衣装をアバターに着せるとランクが見られます。
+en: PC
+tr: PC
+en: {0} without this outfit
+tr: この衣装なしなら{0}
+en: Quest hides Poor and Very Poor avatars by default.
+tr: QuestではPoorとVery Poorのアバターは初期設定で非表示になります。
+en: Holding Quest back
+tr: Questのランクを下げているもの
+en: Holding PC back
+tr: PCのランクを下げているもの
+en: {0}, {1} allows {2}
+tr: {0}、{1}は{2}まで
+en: Texture quality
+tr: テクスチャ画質
+en: Smaller textures use less memory. Default keeps them the way they came.
+tr: テクスチャを小さくするとメモリが減ります。デフォルトは元のままです。
+en: There are no textures to change on this outfit.
+tr: この衣装には変更できるテクスチャがありません。
+en: {0} normal map
+tr: ノーマルマップ{0}枚
+en: {0} normal maps
+tr: ノーマルマップ{0}枚
+en: {0} roughness map
+tr: ラフネスマップ{0}枚
+en: {0} roughness maps
+tr: ラフネスマップ{0}枚
+en: {0} metallic map
+tr: メタリックマップ{0}枚
+en: {0} metallic maps
+tr: メタリックマップ{0}枚
+en: {0} menu icon
+tr: メニューアイコン{0}個
+en: {0} menu icons
+tr: メニューアイコン{0}個
+en: Covers {0} in {1}.
+tr: {1}の{0}が対象です。
+en: Right now: {0}.
+tr: 現在の設定: {0}。
+en: {0} skipped because another tool manages them.
+tr: {0}は別のツールが管理しているため対象外です。
+en: Lower saves memory but can make things blurry.
+tr: 下げるとメモリが減りますが、ぼやけることがあります。
+en: Normal maps
+tr: ノーマルマップ
+en: Fine detail like stitching, folds and strings. Lower flattens it.
+tr: 縫い目やしわ、ひもなどの細かい凹凸です。下げると平らになります。
+en: Roughness maps
+tr: ラフネスマップ
+en: How shiny or matte each spot looks. Lower softens it.
+tr: 各部分のツヤやマットさです。下げるとぼやけます。
+en: Metallic maps
+tr: メタリックマップ
+en: Where the metal shine goes. Lower softens its edges.
+tr: 金属の光沢が出る場所です。下げると境目がぼやけます。
+en: Menu icons
+tr: メニューアイコン
+en: Your menu pictures. Medium is plenty.
+tr: メニューの画像です。中画質で十分です。
+en: Compression
+tr: 圧縮
+en: Crunch compression
+tr: Crunch圧縮
+en: Smaller download, slightly softer look. Doesn't work with High.
+tr: ダウンロードサイズが小さくなり、少しぼやけます。高品質とは併用できません。
+en: Apply to {0}
+tr: {0}に適用
+en: Nothing to change
+tr: 変更なし
+en: Restore as shipped ({0})
+tr: 配布時の状態に戻す ({0})
+en: Restore as shipped
+tr: 配布時の状態に戻す
+en: Lowest quality. Smaller on Quest, same as Normal on PC.
+tr: 最も低画質です。Questでは小さくなり、PCでは標準と同じです。
+en: Unity's standard. Most outfits ship with it.
+tr: Unityの標準です。ほとんどの衣装はこの設定で配布されています。
+en: Sharpest. Can use twice the memory.
+tr: 最も高画質です。メモリを2倍使うことがあります。
+en: Keeps each texture's own setting.
+tr: テクスチャごとの設定のままにします。
+en: Crunch is slow, so this can take a few minutes.
+tr: Crunchは処理が遅いため、数分かかることがあります。
+en: Change texture quality
+tr: テクスチャ画質の変更
+en: {0} in {1} will change and Unity will reimport them.
+tr: {1}内の{0}を変更し、Unityで再インポートします。
+en: Restore as shipped puts them back anytime.
+tr: いつでも配布時の状態に戻せます。
+en: Change them
+tr: 変更する
+en: Stopped
+tr: 中止しました
+en: Changed {0} of {1}. The rest weren't touched.
+tr: {1}のうち{0}枚を変更しました。残りはそのままです。
+en: Put {0} in {1} back the way they came?
+tr: {1}内の{0}を元の状態に戻しますか？
+en: Restore
+tr: 戻す

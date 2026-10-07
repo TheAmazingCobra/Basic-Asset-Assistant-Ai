@@ -1,0 +1,25 @@
+{
+  "name": "com.tamcob.baaa",
+  "displayName": "BAAA (Basic Asset Assistant AI)",
+  "version": "1.1.0",
+  "unity": "2022.3",
+  "description": "A simple asset assistant for VRChat outfits. It checks your outfit, fixes what's broken and helps you make it lighter. A hobby project, coded with the help of AI.",
+  "author": {
+    "name": "TAMCOB",
+    "url": "https://github.com/TheAmazingCobra"
+  },
+  "license": "MIT",
+  "licensesUrl": "https://github.com/TheAmazingCobra/Basic-Asset-Assistant-Ai/blob/main/LICENSE",
+  "documentationUrl": "https://github.com/TheAmazingCobra/Basic-Asset-Assistant-Ai#readme",
+  "keywords": [
+    "vrchat",
+    "avatar",
+    "outfit",
+    "optimization",
+    "vrcfury",
+    "poiyomi"
+  ],
+  "vpmDependencies": {
+    "com.vrchat.avatars": ">=3.5.0"
+  }
+}

@@ -1,0 +1,1148 @@
+# BAAA, Español
+# Each "en:" line is the English the window asks for, and the "tr:" line under it is what it shows.
+# Keep {0}, {1} and the *stars* where they are. \n is a new line. A line missing here shows in English.
+language: Español
+short: Español
+code: es
+culture: es-ES
+quotes: ""
+
+# AssistantAtlas.cs
+en: Too many materials to fit in one atlas.
+tr: Hay demasiados materiales para un solo atlas.
+
+# AssistantCheck.cs
+en: Your project has script errors
+tr: Tu proyecto tiene errores de script
+en: Unity can't upload until they're fixed. They're the red errors in the Console, often from another tool.
+tr: Unity no puede subir hasta que se arreglen. Son los errores rojos de la Console, a menudo de otra herramienta.
+en: Open the Console
+tr: Abrir la Console
+en: VRCFury is in this project twice
+tr: VRCFury está dos veces en este proyecto
+en: Two copies break it. Delete the one in {0} and keep the one from the Creator Companion.
+tr: Dos copias lo rompen. Borra la que está en {0} y deja la del Creator Companion.
+en: Poiyomi is in this project twice
+tr: Poiyomi está dos veces en este proyecto
+en: Two copies can break its shaders. Delete the one in {0} and keep the one from the Creator Companion.
+tr: Dos copias pueden romper sus shaders. Borra la que está en {0} y deja la del Creator Companion.
+en: This outfit won't upload
+tr: Este outfit no se va a subir
+en: It's tagged EditorOnly, and the copy that stood in for it is gone.
+tr: Está marcado como EditorOnly y la copia que lo reemplazaba ya no está.
+en: Show it again
+tr: Volver a mostrarlo
+en: No color slider
+tr: Sin slider de color
+en: Most outfits have one. Reimporting the pack brings it back.
+tr: Casi todos los outfits tienen uno. Reimportar el pack lo trae de vuelta.
+en: This outfit doesn't match your avatar's bones
+tr: Este outfit no coincide con los huesos de tu avatar
+en: Only {0} of its {1} body bones match {2}. It's probably made for a different base, or a different version of yours.
+tr: Solo {0} de sus {1} huesos del cuerpo coinciden con {2}. Seguramente es para otra base, o para otra versión de la tuya.
+en: {0} has no menu icon
+tr: {0} no tiene ícono en el menú
+en: The icon file is missing. The slider still works.
+tr: Falta el archivo del ícono. El slider sigue funcionando.
+en: The icon file is missing. The toggle still works.
+tr: Falta el archivo del ícono. El toggle sigue funcionando.
+en: The object it switches was deleted.
+tr: Se borró el objeto que controla.
+en: Its object slot is empty.
+tr: Su campo de objeto está vacío.
+en: Slider {0} has nothing to switch
+tr: El slider {0} no controla nada
+en: Toggle {0} has nothing to switch
+tr: El toggle {0} no controla nada
+en: The mesh with {0} was deleted or never set.
+tr: El mesh con {0} se borró o nunca se asignó.
+en: {0} isn't on {1}
+tr: {0} no está en {1}
+en: {0} doesn't have that blendshape. The rest still works.
+tr: {0} no tiene ese blendshape. Lo demás sigue funcionando.
+en: Your avatar has no {0} blendshape
+tr: Tu avatar no tiene el blendshape {0}
+en: Slider {0} uses it on the body. Your avatar base might be a different version.
+tr: El slider {0} lo usa en el cuerpo. Puede que tu avatar base sea otra versión.
+en: Toggle {0} uses it on the body. Your avatar base might be a different version.
+tr: El toggle {0} lo usa en el cuerpo. Puede que tu avatar base sea otra versión.
+en: Slider {0} points at a mesh that's gone
+tr: El slider {0} apunta a un mesh que ya no está
+en: Toggle {0} points at a mesh that's gone
+tr: El toggle {0} apunta a un mesh que ya no está
+en: The mesh it recolors was deleted or never set.
+tr: El mesh que recolorea se borró o nunca se asignó.
+en: Slider {0} won't work
+tr: El slider {0} no va a funcionar
+en: Toggle {0} won't work
+tr: El toggle {0} no va a funcionar
+en: The material {0} was renamed or copied, so the setting is now called {1}. Rename it back or use the pack's material.
+tr: El material {0} se renombró o se copió, así que el ajuste ahora se llama {1}. Devuélvele su nombre o usa el material del pack.
+en: The material {0} was locked too early. Unlock it in Poiyomi and lock it again.
+tr: El material {0} se bloqueó antes de tiempo. Desbloquéalo en Poiyomi y vuelve a bloquearlo.
+en: {0} on {1} isn't marked animated and renamed. Unlock it, right-click the setting, mark it, then lock again.
+tr: {0} en {1} no está marcado como animado y renombrado. Desbloquéalo, haz clic derecho en el ajuste, márcalo y vuelve a bloquearlo.
+en: No material on this outfit has {0}. A material was probably swapped.
+tr: Ningún material de este outfit tiene {0}. Seguramente se cambió un material.
+en: {0} uses a different material now.
+tr: {0} ahora usa otro material.
+en: {0} pieces use a different material now.
+tr: {0} piezas ahora usan otro material.
+en: Put the pack's material back
+tr: Restaurar el material del pack
+en: Put the pack's materials back
+tr: Restaurar los materiales del pack
+en: A blendshape link is empty
+tr: Un blendshape link está vacío
+en: It has no meshes in it.
+tr: No tiene ningún mesh.
+en: A blendshape link has no body to follow
+tr: Un blendshape link no tiene cuerpo que seguir
+en: It doesn't say which avatar mesh to follow.
+tr: No dice qué mesh del avatar debe seguir.
+en: A blendshape link points at a mesh that's gone
+tr: Un blendshape link apunta a un mesh que ya no está
+en: One of its meshes was deleted.
+tr: Se borró uno de sus meshes.
+en: Can't find {0} on your avatar
+tr: No se encuentra {0} en tu avatar
+en: A blendshape link follows a mesh called {0}, and {1} doesn't have one. Pick your body mesh.
+tr: Un blendshape link sigue un mesh llamado {0}, y {1} no tiene ninguno. Elige el mesh del cuerpo.
+en: {2} blendshape links follow a mesh called {0}, and {1} doesn't have one. Pick your body mesh.
+tr: {2} blendshape links siguen un mesh llamado {0}, y {1} no tiene ninguno. Elige el mesh del cuerpo.
+en: Pick your body mesh
+tr: Elegir el mesh del cuerpo
+en: {0}  ({1} blendshapes)
+tr: {0}  ({1} blendshapes)
+en: {0} doesn't follow your body sliders
+tr: {0} no sigue los sliders del cuerpo
+en: It has {0} body blendshapes but no blendshape link.
+tr: Tiene {0} blendshapes del cuerpo pero ningún blendshape link.
+en: Add a blendshape link
+tr: Agregar un blendshape link
+en: One of its blendshapes is called {0} instead of {1}, so it doesn't follow the matching blendshape on {2}.
+tr: Uno de sus blendshapes se llama {0} en vez de {1}, así que no sigue el blendshape que le corresponde en {2}.
+en: One of its blendshapes is called {0} instead of {1}, so it doesn't follow the matching blendshape on your body.
+tr: Uno de sus blendshapes se llama {0} en vez de {1}, así que no sigue el blendshape que le corresponde en el cuerpo.
+en: {3} of its blendshapes have a prefix, like {0} instead of {1}, so they don't follow the matching blendshapes on {2}.
+tr: {3} de sus blendshapes tienen un prefijo, como {0} en vez de {1}, así que no siguen los blendshapes que les corresponden en {2}.
+en: {2} of its blendshapes have a prefix, like {0} instead of {1}, so they don't follow the matching blendshapes on your body.
+tr: {2} de sus blendshapes tienen un prefijo, como {0} en vez de {1}, así que no siguen los blendshapes que les corresponden en el cuerpo.
+en: {0} has blendshapes with a stray prefix
+tr: {0} tiene blendshapes con un prefijo de más
+en: Broken link in {0}
+tr: Enlace roto en {0}
+en: Something it points at on {0} was deleted ({1}).
+tr: Se borró algo a lo que apunta en {0} ({1}).
+en: Restore from the pack
+tr: Restaurar desde el pack
+en: Bring back {0}
+tr: Recuperar {0}
+en: VRCFury component
+tr: Componente de VRCFury
+en: VRCFury isn't installed
+tr: VRCFury no está instalado
+en: This outfit runs on VRCFury. Add it with the VRChat Creator Companion.
+tr: Este outfit funciona con VRCFury. Agrégalo con el VRChat Creator Companion.
+en: Get VRCFury
+tr: Conseguir VRCFury
+en: Poiyomi isn't installed
+tr: Poiyomi no está instalado
+en: Some materials need Poiyomi Toon and show up pink without it.
+tr: Algunos materiales necesitan Poiyomi Toon y sin él se ven de color rosa.
+en: Get Poiyomi
+tr: Conseguir Poiyomi
+en: Show the outfit again
+tr: Volver a mostrar el outfit
+
+# AssistantColors.cs
+en: Change the default color
+tr: Cambiar el color inicial
+
+# AssistantColorsView.cs
+en: Colors
+tr: Colores
+en: Pick your *colors*
+tr: Elige tus *colores*
+en: Choose the color it loads in. Drag a slider to see it on your avatar.
+tr: Elige el color con el que carga. Arrastra un slider para verlo en tu avatar.
+en: VRCFury isn't installed, so this outfit's color changers can't be read. The Check tab shows how to fix that.
+tr: VRCFury no está instalado, así que no se pueden leer los cambios de color de este outfit. La pestaña Revisión te dice cómo arreglarlo.
+en: Looking at the color changers...
+tr: Revisando los cambios de color...
+en: This outfit has no color changers.
+tr: Este outfit no tiene cambios de color.
+en: This is the pack's own prefab. Put the outfit in your scene to change its colors.
+tr: Este es el prefab original del pack. Pon el outfit en tu escena para cambiar sus colores.
+en: Colors are changed on outfits in your scene, not on the pack's own prefab.
+tr: Los colores se cambian en los outfits de tu escena, no en el prefab original del pack.
+en: You can still change them from your menu in VRChat. The scene only shows them while this tab is open.
+tr: También puedes cambiarlos desde tu menú en VRChat. La escena solo los muestra mientras esta pestaña está abierta.
+en: The colors are baked into this {0} version. Go back to the original to change them, then make it again.
+tr: Los colores están fijados en esta versión {0}. Vuelve al original para cambiarlos y luego vuelve a crearla.
+en: Baked at {0}
+tr: Fijado en {0}
+en: Go back to the original
+tr: Volver al original
+en: Loads in at {0}
+tr: Carga al {0}
+en: Back to {0}
+tr: Volver al {0}
+en: Hue
+tr: Tono
+en: Saturation
+tr: Saturación
+en: Brightness
+tr: Brillo
+en: Color
+tr: Color
+
+# AssistantCopies.cs
+en: Decimated
+tr: Decimada
+en: Fused
+tr: Fusionada
+en: Put the outfit in your scene first.
+tr: Primero pon el outfit en tu escena.
+en: This is already a copy. Go back to the original first.
+tr: Esto ya es una copia. Primero vuelve al original.
+en: VRCFury isn't installed, so this outfit's pieces can't be read. The Check tab shows how to fix that.
+tr: VRCFury no está instalado, así que no se pueden leer las piezas de este outfit. La pestaña Revisión te dice cómo arreglarlo.
+en: VRChat's Quest shaders aren't in this project. Add the VRChat SDK with the Creator Companion first.
+tr: Los shaders de Quest de VRChat no están en este proyecto. Primero agrega el VRChat SDK con el Creator Companion.
+en: Copying the outfit...
+tr: Copiando el outfit...
+en: Copying the meshes...
+tr: Copiando los meshes...
+en: Saving the {0} version...
+tr: Guardando la versión {0}...
+en: Unity couldn't save {0}.
+tr: Unity no pudo guardar {0}.
+en: Make {0} version
+tr: Crear versión {0}
+en: Reducing triangles...
+tr: Reduciendo triángulos...
+en: Nothing on this outfit is showing, so there's nothing to fuse. Put some pieces back on in the Pieces tab.
+tr: No se ve nada de este outfit, así que no hay nada que fusionar. Vuelve a poner algunas piezas en la pestaña Piezas.
+en: Packing the textures...
+tr: Empaquetando las texturas...
+en: Fusing the meshes...
+tr: Fusionando los meshes...
+en: This outfit has no meshes to decimate.
+tr: Este outfit no tiene meshes para decimar.
+en: The original isn't next to this copy anymore, so it can't be made again.
+tr: El original ya no está junto a esta copia, así que no se puede volver a crear.
+
+# AssistantCopiesView.cs
+en: Toggles and color changers stop working. The colors you picked stay. Pick your pieces first. You can go back anytime.
+tr: Los toggles y los cambios de color dejan de funcionar. Los colores que elegiste se quedan. Primero elige tus piezas. Puedes volver atrás cuando quieras.
+en: No toggles or color changers on Quest. The colors you picked stay. Pick your pieces first. Your PC version keeps everything.
+tr: En Quest no hay toggles ni cambios de color. Los colores que elegiste se quedan. Primero elige tus piezas. Tu versión de PC conserva todo.
+en: This is an advanced setting and it can break your outfit. BAAA isn't responsible for outfit errors, so please don't ask the creator's support to fix them.
+tr: Es una opción avanzada y puede romper tu outfit. BAAA no se hace responsable de los errores del outfit, así que no le pidas al soporte del creador que los arregle.
+en: VRCFury optimizations
+tr: Optimizaciones de VRCFury
+en: VRCFury isn't installed. The Check tab shows how to fix that.
+tr: VRCFury no está instalado. La pestaña Revisión te dice cómo arreglarlo.
+en: Put the outfit on your avatar to add these.
+tr: Ponle el outfit a tu avatar para agregarlos.
+en: Looking at your avatar...
+tr: Revisando tu avatar...
+en: Not available
+tr: No disponible
+en: On avatar
+tr: En el avatar
+en: To add
+tr: Por agregar
+en: On by default
+tr: Activo por defecto
+en: VRCFury handles parameter compression by itself now.
+tr: VRCFury ahora comprime los parámetros por su cuenta.
+en: Apply VRCFury optimizations
+tr: Aplicar optimizaciones de VRCFury
+en: All optimizations are on
+tr: Todas las optimizaciones están activas
+en: {0} go on {1}, in an object called {2}. They affect your whole avatar.
+tr: Vamos a poner {0} en {1}, dentro de un objeto llamado {2}. Esto afecta a todo tu avatar.
+en: {0} optimizer
+tr: {0} optimizador
+en: {0} optimizers
+tr: {0} optimizadores
+en: Ctrl+Z removes them.
+tr: Ctrl+Z lo deshace.
+en: Apply
+tr: Aplicar
+en: Cancel
+tr: Cancelar
+en: Fuser
+tr: Fusión
+en: One *mesh*
+tr: Un solo *mesh*
+en: Fuses the outfit into one mesh. Extreme also puts every texture on one atlas.
+tr: Fusiona el outfit en un solo mesh. Extreme además pone todas las texturas en un atlas.
+en: This is the {0} version. Go back to the original in the Quest tab to fuse it.
+tr: Esta es la versión {0}. Vuelve al original en la pestaña Quest para fusionarlo.
+en: This is the {0} version. Go back to the original in the Decimator tab to fuse it.
+tr: Esta es la versión {0}. Vuelve al original en la pestaña Decimador para fusionarlo.
+en: Heads up
+tr: Ojo
+en: At your own risk
+tr: Bajo tu propio riesgo
+en: Pick them in the Pieces tab.
+tr: Elígelas en la pestaña Piezas.
+en: Fused version
+tr: Versión fusionada
+en: One mesh. Every material stays as it is.
+tr: Un solo mesh. Todos los materiales quedan como están.
+en: Make fused version
+tr: Crear versión fusionada
+en: This can take a minute.
+tr: Esto puede tardar un minuto.
+en: Make it
+tr: Crearla
+en: Extreme version
+tr: Versión Extreme
+en: One mesh and one material. Every texture goes on one atlas.
+tr: Un solo mesh y un material. Todas las texturas van a un atlas.
+en: The Extreme version needs Poiyomi installed. The Check tab shows how to get it.
+tr: La versión Extreme necesita Poiyomi instalado. La pestaña Revisión te dice cómo conseguirlo.
+en: What changes
+tr: Qué cambia
+en: Every material fits on the atlas as it is.
+tr: Todos los materiales caben en el atlas tal como están.
+en: Atlas size
+tr: Tamaño del atlas
+en: 2K is the lightest, 8K the sharpest. The atlas only gets as big as it needs.
+tr: 2K es el más ligero, 8K el más nítido. El atlas solo crece lo que necesita.
+en: Make Extreme version
+tr: Crear versión Extreme
+en: Wearing {0} of {1}.
+tr: Llevas {0} de {1}.
+en: {0} piece
+tr: {0} pieza
+en: {0} pieces
+tr: {0} piezas
+en: This is the pack's own prefab. Put the outfit in your scene first.
+tr: Este es el prefab original del pack. Primero pon el outfit en tu escena.
+en: Copies are made from outfits in your scene, not from the pack's own prefab.
+tr: Las copias se hacen a partir de los outfits de tu escena, no del prefab original del pack.
+en: decimated
+tr: decimada
+en: fused
+tr: fusionada
+en: Advanced options
+tr: Opciones avanzadas
+en: I understand these are advanced options and support will NOT help me if I use them.
+tr: Entiendo que estas son opciones avanzadas y que el soporte NO me ayudará si las uso.
+en: The Asset Assistant is a standalone helper and isn't included in my purchase. It was made to help new users.
+tr: El Asset Assistant es una herramienta de ayuda aparte y no está incluida en mi compra. Se hizo para ayudar a quienes recién empiezan.
+en: I understand
+tr: Entiendo
+en: Pop-ups reset
+tr: Ventanas reiniciadas
+en: The Asset Assistant will ask again in this project.
+tr: El Asset Assistant volverá a preguntar en este proyecto.
+en: OK
+tr: OK
+en: Couldn't make the {0} version
+tr: No se pudo crear la versión {0}
+en: {0} version
+tr: Versión {0}
+en: Made from {0}
+tr: Basada en {0}
+en: One mesh and one material, no toggles or color changers.
+tr: Un solo mesh y un material, sin toggles ni cambios de color.
+en: One mesh with its materials as they were, no toggles or color changers.
+tr: Un solo mesh con sus materiales como estaban, sin toggles ni cambios de color.
+en: Quest shader, one mesh, no toggles. Go back before you upload for PC.
+tr: Shader de Quest, un solo mesh, sin toggles. Vuelve al original antes de subir para PC.
+en: Fewer triangles. Everything else still works.
+tr: Menos triángulos. Todo lo demás sigue funcionando.
+en: Out of date
+tr: Desactualizada
+en: The pack was updated. Make it again to catch up.
+tr: El pack se actualizó. Vuelve a crearla para ponerla al día.
+en: Original missing
+tr: Falta el original
+en: The original isn't next to it anymore.
+tr: El original ya no está a su lado.
+en: Make it again
+tr: Volver a crearla
+en: Couldn't make it again
+tr: No se pudo volver a crear
+en: Go back to PC version
+tr: Volver a la versión de PC
+en: Saved in {0}.
+tr: Se guardó en {0}.
+en: Before and after
+tr: Antes y después
+en: Triangles
+tr: Triángulos
+en: Skinned meshes
+tr: Skinned meshes
+en: Material slots
+tr: Slots de material
+en: PhysBones
+tr: PhysBones
+en: Texture memory
+tr: Memoria de texturas
+en: same
+tr: igual
+en: Quest
+tr: Quest
+en: Ready for *Quest*
+tr: Listo para *Quest*
+en: Makes a Quest copy and swaps it in. Your PC version stays the same.
+tr: Crea una copia para Quest y la pone en su lugar. Tu versión de PC no cambia.
+en: This is the {0} version. Go back to the original in the Fuser tab to make a Quest version.
+tr: Esta es la versión {0}. Vuelve al original en la pestaña Fusión para crear una versión Quest.
+en: This is the {0} version. Go back to the original in the Decimator tab to make a Quest version.
+tr: Esta es la versión {0}. Vuelve al original en la pestaña Decimador para crear una versión Quest.
+en: Quest version
+tr: Versión Quest
+en: One mesh, one atlas, VRChat's Quest shader.
+tr: Un solo mesh, un atlas y el shader de Quest de VRChat.
+en: 4K usually isn't recommended for Quest. It uses a lot of memory on a headset.
+tr: 4K no suele recomendarse para Quest. Usa mucha memoria en un visor.
+en: 1K is lighter, 2K is sharper. 4K usually isn't recommended for Quest.
+tr: 1K es más ligero, 2K más nítido. 4K no suele recomendarse para Quest.
+en: Physbones start off. Your base avatar needs its own Quest version too.
+tr: Los physbones empiezan apagados. Tu avatar base también necesita su propia versión Quest.
+en: Make Quest version
+tr: Crear versión Quest
+en: Looking at the Quest version...
+tr: Revisando la versión Quest...
+en: limit {0}
+tr: límite {0}
+en: VRAM
+tr: VRAM
+en: These are Quest's Poor limits, body included. Quest hides Poor and Very Poor avatars by default, so lower is better.
+tr: Son los límites de Poor en Quest, con el cuerpo incluido. Quest oculta por defecto los avatares Poor y Very Poor, así que menos es mejor.
+en: This outfit alone goes over a limit.
+tr: Este outfit por sí solo ya pasa un límite.
+en: {0} of {1} triangles. Cut them down in the Decimator.
+tr: {0} de {1} triángulos. Redúcelos en el Decimador.
+en: Open {0}
+tr: Abrir {0}
+en: All off to start. Quest allows {0} for your whole avatar.
+tr: Todos empiezan apagados. Quest permite {0} para todo tu avatar.
+en: This outfit has no physbones.
+tr: Este outfit no tiene physbones.
+en: Other
+tr: Otros
+en: Uploading for Quest
+tr: Subir para Quest
+en: Android module missing
+tr: Falta el módulo de Android
+en: Unity's Android module isn't installed, and Quest uploads need it. In Unity Hub, open Installs, click the gear next to {0} and add Android Build Support.
+tr: El módulo de Android de Unity no está instalado y lo necesitas para subir a Quest. En Unity Hub, abre Installs, haz clic en el engranaje junto a {0} y agrega Android Build Support.
+en: Upload your PC version first.
+tr: Primero sube tu versión de PC.
+en: Make the Quest version here. It swaps in for this outfit.
+tr: Crea aquí la versión Quest. Se pone en lugar de este outfit.
+en: Switch Unity to Android (File, Build Settings) and upload the same avatar again.
+tr: Cambia Unity a Android (File, Build Settings) y vuelve a subir el mismo avatar.
+en: Go back to the PC version before your next PC upload.
+tr: Vuelve a la versión de PC antes de tu próxima subida para PC.
+
+# AssistantDecimate.cs
+en: Fused mesh
+tr: Mesh fusionado
+en: Measuring {0}...
+tr: Midiendo {0}...
+en: Make a decimated version first.
+tr: Primero crea una versión decimada.
+en: This copy was made before the decimator kept its full-detail meshes. Make it again first.
+tr: Esta copia se hizo antes de que el decimador guardara sus meshes con todo el detalle. Primero vuelve a crearla.
+en: Reducing {0}...
+tr: Reduciendo {0}...
+en: Only Extreme and Quest versions have textures of their own to bake.
+tr: Solo las versiones Extreme y Quest tienen texturas propias para hornear.
+en: Cut some triangles first.
+tr: Primero reduce algunos triángulos.
+en: The fused mesh isn't in this copy anymore. Make it again first.
+tr: El mesh fusionado ya no está en esta copia. Primero vuelve a crearla.
+en: This version has no textures of its own to bake.
+tr: Esta versión no tiene texturas propias para hornear.
+en: Baking {0}...
+tr: Horneando {0}...
+
+# AssistantDecimatorView.cs
+en: Decimator
+tr: Decimador
+en: Fewer *triangles*
+tr: Menos *triángulos*
+en: Fewer triangles. Toggles, color changers and pieces keep working.
+tr: Menos triángulos. Los toggles, los cambios de color y las piezas siguen funcionando.
+en: Decimated version
+tr: Versión decimada
+en: Makes a copy and swaps it in. You can go back anytime.
+tr: Crea una copia y la pone en su lugar. Puedes volver atrás cuando quieras.
+en: Pieces you took off stay off.
+tr: Las piezas que quitaste se quedan fuera.
+en: Make decimated version
+tr: Crear versión decimada
+en: Makes a copy of {0} and swaps it in. Nothing changes until you move the slider.
+tr: Crea una copia de {0} y la pone en su lugar. Nada cambia hasta que muevas el slider.
+en: Drag to cut triangles. Everything else keeps working.
+tr: Arrastra para reducir triángulos. Todo lo demás sigue funcionando.
+en: Drag to cut triangles on the fused mesh.
+tr: Arrastra para reducir los triángulos del mesh fusionado.
+en: Looking at the meshes...
+tr: Revisando los meshes...
+en: Make it again first
+tr: Primero vuelve a crearla
+en: It was made before the decimator kept full-detail meshes.
+tr: Se hizo antes de que el decimador guardara los meshes con todo el detalle.
+en: At full detail
+tr: Detalle completo
+en: Kept
+tr: Conservado
+en: Keep {0} triangles
+tr: Conservar {0} triángulos
+en: Updating
+tr: Actualizando
+en: Updates as you drag. Too low looks blocky. Drag back up anytime.
+tr: Se actualiza mientras arrastras. Muy bajo se ve tosco. Arrástralo de vuelta cuando quieras.
+en: The cut goes where it shows least. Meshes under {0} triangles stay as they are.
+tr: El recorte va donde menos se nota. Los meshes con menos de {0} triángulos quedan como están.
+en: Meshes
+tr: Meshes
+en: Fit under {0}
+tr: Quedar por debajo de {0}
+en: Fits at full detail, body included.
+tr: Ya cabe con detalle completo, con el cuerpo incluido.
+en: Counts the whole avatar, body included.
+tr: Cuenta todo el avatar, con el cuerpo incluido.
+en: The rest of the avatar already has {0} triangles.
+tr: El resto del avatar ya tiene {0} triángulos.
+en: {0} triangles, too small to cut
+tr: {0} triángulos, demasiado pequeño para reducir
+en: {0} of {1} triangles
+tr: {0} de {1} triángulos
+en: Auto
+tr: Auto
+en: Keep all
+tr: Conservar todo
+en: Custom
+tr: Manual
+en: Keep {0}
+tr: Conservar {0}
+en: Re-bake textures
+tr: Volver a hornear texturas
+en: Bakes the full-detail look onto fewer triangles, so prints and seams stay put. Takes a moment.
+tr: Hornea el aspecto con detalle completo sobre menos triángulos, para que los estampados y las costuras no se muevan. Tarda un momento.
+en: Baked for this triangle count. Moving the slider puts the plain textures back.
+tr: Horneado para esta cantidad de triángulos. Mover el slider vuelve a poner las texturas normales.
+en: Use the plain textures
+tr: Usar las texturas normales
+en: Very Poor starts above {0} triangles on PC and {1} on Quest, body included.
+tr: Very Poor empieza por encima de {0} triángulos en PC y {1} en Quest, con el cuerpo incluido.
+
+# AssistantExtreme.cs
+en: matcap
+tr: matcap
+en: second matcap
+tr: segundo matcap
+en: third matcap
+tr: tercer matcap
+en: fourth matcap
+tr: cuarto matcap
+en: rim light
+tr: rim light
+en: second rim light
+tr: segundo rim light
+en: cubemap
+tr: cubemap
+en: reflections
+tr: reflejos
+en: clear coat
+tr: clear coat
+en: glitter
+tr: glitter
+en: detail texture
+tr: textura de detalle
+en: dissolve
+tr: dissolve
+en: flipbook
+tr: flipbook
+en: text
+tr: texto
+en: subsurface scattering
+tr: subsurface scattering
+en: backlight
+tr: backlight
+en: stylized specular
+tr: specular estilizado
+en: anisotropic shine
+tr: brillo anisotrópico
+en: environment rim
+tr: rim de entorno
+en: {0} keeps its own material, it doesn't use Poiyomi.
+tr: {0} conserva su propio material, no usa Poiyomi.
+en: {0} keeps its own material, it's see-through.
+tr: {0} conserva su propio material, es transparente.
+en: {0} keeps its own material, its decal can't go on the atlas.
+tr: {0} conserva su propio material, su decal no puede ir en el atlas.
+en: {0} gets a second spot on the atlas for its decal.
+tr: {0} tiene un segundo espacio en el atlas para su decal.
+en: {0} gets {1} spots on the atlas for its decal.
+tr: {0} tiene {1} espacios en el atlas para su decal.
+en: {0} loses its {1}.
+tr: {0} se queda sin {1}.
+en: {0} loses its {1}, another part's is used instead.
+tr: {0} pasa a usar {1} de otra parte.
+en: {0} gets the {1} too.
+tr: {0} también recibe {1}.
+
+# AssistantFeatures.cs
+en: {0} and {1}
+tr: {0} y {1}
+en: Turn features back on
+tr: Reactivar funciones
+en: Turn features off
+tr: Desactivar funciones
+
+# AssistantFeaturesView.cs
+en: Features
+tr: Funciones
+en: Switch things *off*
+tr: *Apaga* lo que sobra
+en: Turn off what you don't need.
+tr: Desactiva lo que no necesites.
+en: Turning things off can break parts of the outfit. Only turn off what you understand. Ctrl+Z undoes it.
+tr: Apagar cosas puede romper partes del outfit. Apaga solo lo que entiendas. Ctrl+Z lo deshace.
+en: This is the pack's own prefab. Put the outfit in your scene to switch its features.
+tr: Este es el prefab original del pack. Pon el outfit en tu escena para cambiar sus funciones.
+en: Features are switched on outfits in your scene, not on the pack's own prefab.
+tr: Las funciones se cambian en los outfits de tu escena, no en el prefab original del pack.
+en: Looking at the features...
+tr: Revisando las funciones...
+en: Nothing to switch off on this outfit.
+tr: No hay nada que apagar en este outfit.
+en: Color changers
+tr: Cambios de color
+en: {0} slider
+tr: {0} slider
+en: {0} sliders
+tr: {0} sliders
+en: Sliders you turn off leave your menu and keep the shipped color.
+tr: Los sliders que apagues salen de tu menú y se quedan con el color original.
+en: Other colors
+tr: Otros colores
+en: The Quest version's physbones are picked in the Quest tab.
+tr: Los physbones de la versión Quest se eligen en la pestaña Quest.
+en: {0} physbone
+tr: {0} physbone
+en: {0} physbones
+tr: {0} physbones
+en: Without them, skirts, hair and tails stop moving. Open a group to switch single ones.
+tr: Sin ellos, las faldas, el pelo y las colas dejan de moverse. Abre un grupo para cambiarlos uno por uno.
+en: Colliders
+tr: Colliders
+en: {0} collider
+tr: {0} collider
+en: {0} colliders
+tr: {0} colliders
+en: Without them, moving parts can go through the body.
+tr: Sin ellos, las partes que se mueven pueden atravesar el cuerpo.
+en: Contacts
+tr: Contactos
+en: {0} contact
+tr: {0} contacto
+en: {0} contacts
+tr: {0} contactos
+en: Touch reactions stop working.
+tr: Las reacciones al tacto dejan de funcionar.
+en: All
+tr: Todos
+en: {0},  {1} off
+tr: {0},  {1} sin activar
+
+# AssistantHierarchy.cs
+en: Asset Assistant: {0} things to look at
+tr: Asset Assistant: {0} cosas por revisar
+en: Asset Assistant: 1 thing to look at
+tr: Asset Assistant: 1 cosa por revisar
+en: Asset Assistant: {0} version, no support
+tr: Asset Assistant: versión {0}, sin soporte
+en: Asset Assistant: all good
+tr: Asset Assistant: todo bien
+
+# AssistantOptimizers.cs
+en: Bakes in blendshapes that never move. Saves memory.
+tr: Hornea los blendshapes que nunca se mueven. Ahorra memoria.
+en: Merges toggle layers into one blend tree, so the animator does less work each frame.
+tr: Junta las capas de los toggles en un solo blend tree, así el animator trabaja menos en cada frame.
+en: Gives every mesh the same light anchor, so your whole avatar is lit evenly.
+tr: Le da a cada mesh la misma ancla de luz, así todo tu avatar se ilumina parejo.
+
+# AssistantPieces.cs
+en: Take off {0}
+tr: Quitar {0}
+en: Put back {0}
+tr: Volver a poner {0}
+en: Put everything back
+tr: Volver a poner todo
+
+# AssistantPiecesView.cs
+en: Pieces
+tr: Piezas
+en: Wear what you *want*
+tr: Usa lo que *quieras*
+en: Click a piece to take it off. Click again to put it back. Pieces you take off aren't uploaded, so your avatar is more optimized. Pieces you keep are uploaded with their toggle.
+tr: Haz clic en una pieza para quitarla. Otro clic la vuelve a poner. Las piezas que quitas no se suben, así que tu avatar queda más optimizado. Las que dejas se suben con su toggle.
+en: This is the {0} version. Go back to the original to change its pieces.
+tr: Esta es la versión {0}. Vuelve al original para cambiar sus piezas.
+en: Looking at the pieces...
+tr: Revisando las piezas...
+en: This outfit has no pieces that switch on and off.
+tr: Este outfit no tiene piezas que se puedan quitar y poner.
+en: This is the pack's own prefab. Put the outfit in your scene to pick its pieces.
+tr: Este es el prefab original del pack. Pon el outfit en tu escena para elegir sus piezas.
+en: Pieces are picked on outfits in your scene, not on the pack's own prefab.
+tr: Las piezas se eligen en los outfits de tu escena, no en el prefab original del pack.
+en: Off
+tr: Quitada
+en: {0} is off and won't upload.
+tr: Quitaste {0} y no se va a subir.
+en: Click to put it back.
+tr: Haz clic para volver a ponerla.
+en: {0} costs {1}.
+tr: {0} cuesta {1}.
+en: Click to take it off.
+tr: Haz clic para quitarla.
+en: {0}, {1} off.
+tr: {0}, {1} sin poner.
+en: Taking them off saves {0}.
+tr: Eso te ahorra {0}.
+en: Point at a piece to see what it costs.
+tr: Pasa el cursor sobre una pieza para ver lo que cuesta.
+en: {0} skinned mesh
+tr: {0} skinned mesh
+en: {0} skinned meshes
+tr: {0} skinned meshes
+en: {0} mesh
+tr: {0} mesh
+en: {0} meshes
+tr: {0} meshes
+en: {0} triangle
+tr: {0} triángulo
+en: {0} triangles
+tr: {0} triángulos
+en: {0} material slot
+tr: {0} slot de material
+en: {0} material slots
+tr: {0} slots de material
+en: Head
+tr: Cabeza
+en: Neck
+tr: Cuello
+en: Torso
+tr: Torso
+en: Hips
+tr: Caderas
+en: Tail
+tr: Cola
+en: Arms
+tr: Brazos
+en: Hands
+tr: Manos
+en: Legs
+tr: Piernas
+en: Feet
+tr: Pies
+en: Extras
+tr: Extras
+
+# AssistantRank.cs
+en: Basic meshes
+tr: Meshes básicos
+en: Bones moved by PhysBones
+tr: Huesos movidos por PhysBones
+en: PhysBone colliders
+tr: Colliders de PhysBones
+en: Constraints
+tr: Constraints
+en: Animators
+tr: Animators
+en: Bones
+tr: Huesos
+en: Lights
+tr: Luces
+en: Particle systems
+tr: Sistemas de partículas
+en: Trail renderers
+tr: Trail renderers
+en: Line renderers
+tr: Line renderers
+en: Cloths
+tr: Cloths
+en: Physics colliders
+tr: Colliders de física
+en: Rigidbodies
+tr: Rigidbodies
+en: Audio sources
+tr: Fuentes de audio
+
+# AssistantScan.cs
+en: missing shader (shows pink)
+tr: shader faltante (se ve rosa)
+en: {0} (locked)
+tr: {0} (bloqueado)
+en: {0} constraint
+tr: {0} constraint
+en: {0} constraints
+tr: {0} constraints
+en: {0} particle system
+tr: {0} sistema de partículas
+en: {0} particle systems
+tr: {0} sistemas de partículas
+en: {0} light
+tr: {0} luz
+en: {0} lights
+tr: {0} luces
+en: {0} audio source
+tr: {0} fuente de audio
+en: {0} audio sources
+tr: {0} fuentes de audio
+en: {0} cloth
+tr: {0} cloth
+en: {0} cloths
+tr: {0} cloths
+en: {0} trail or line renderer
+tr: {0} trail o line renderer
+en: {0} trail or line renderers
+tr: {0} trail o line renderers
+
+# AssistantScope.cs
+en: {0} on {1}
+tr: {0} en {1}
+en: {0} (not on an avatar)
+tr: {0} (sin avatar)
+en: {0} (editing the prefab)
+tr: {0} (editando el prefab)
+en: {0} (pack file)
+tr: {0} (archivo del pack)
+
+# AssistantTextures.cs
+en: as shipped
+tr: originales
+en: Low ({0}K)
+tr: Baja ({0}K)
+en: Medium ({0}K)
+tr: Media ({0}K)
+en: High ({0}K)
+tr: Alta ({0}K)
+en: textures {0}
+tr: texturas {0}
+en: normal maps {0}
+tr: mapas de normales {0}
+en: roughness maps {0}
+tr: mapas de rugosidad {0}
+en: metallic maps {0}
+tr: mapas metálicos {0}
+en: menu icons {0}
+tr: íconos del menú {0}
+en: mixed compression
+tr: compresión mixta
+en: {0} compression
+tr: compresión {0}
+en: default
+tr: por defecto
+en: mixed
+tr: de varios tamaños
+en: changed
+tr: con cambios
+en: Changing texture quality
+tr: Cambiando la calidad de texturas
+en: Restoring textures as shipped
+tr: Restaurando las texturas originales
+en: {0}  ({1} of {2})
+tr: {0}  ({1} de {2})
+
+# BaaaWindow.cs
+en: Check
+tr: Revisión
+en: Perf Scanner
+tr: Escáner
+en: Performance
+tr: Rendimiento
+en: VRCFury
+tr: VRCFury
+en: Default
+tr: Por defecto
+en: Low · 1K
+tr: Baja · 1K
+en: Medium · 2K
+tr: Media · 2K
+en: High · 4K
+tr: Alta · 4K
+en: Low · 64
+tr: Baja · 64
+en: Medium · 256
+tr: Media · 256
+en: High · 512
+tr: Alta · 512
+en: Low
+tr: Baja
+en: Normal
+tr: Normal
+en: High
+tr: Alta
+en: Asset Assistant
+tr: Asset Assistant
+en: No outfits *yet*
+tr: Sin outfits *todavía*
+en: Looking for outfits...
+tr: Buscando outfits...
+en: Put an outfit on your avatar and it'll show up here.
+tr: Pon un outfit en tu avatar y aparece aquí.
+en: Make it *lighter*
+tr: Hazlo más *ligero*
+en: Texture sizes and compression.
+tr: Tamaño y compresión de las texturas.
+en: Built-in *optimizers*
+tr: Optimizadores *integrados*
+en: They come with VRCFury and work on your whole avatar when you upload.
+tr: Vienen con VRCFury y actúan sobre todo tu avatar al subirlo.
+en: {0} problem
+tr: {0} problema
+en: {0} problems
+tr: {0} problemas
+en: Outfit
+tr: Outfit
+en: Rescan
+tr: Reescanear
+en: Outfit *health*
+tr: *Salud* del outfit
+en: Finds what's broken and fixes it.
+tr: Encuentra lo que está roto y lo arregla.
+en: This is the pack's own prefab. Put the outfit in your scene to fix things.
+tr: Este es el prefab original del pack. Pon el outfit en tu escena para arreglar cosas.
+en: Put the outfit on your avatar to check the body blendshapes too.
+tr: Ponle el outfit a tu avatar para revisar también los blendshapes del cuerpo.
+en: 1 thing to look at
+tr: 1 cosa por revisar
+en: {0} things to look at
+tr: {0} cosas por revisar
+en: Check again
+tr: Revisar de nuevo
+en: Copy project info
+tr: Copiar info del proyecto
+en: Copied.
+tr: Copiado.
+en: Versions
+tr: Versiones
+en: This outfit was made with Poiyomi {0} and you have {1}, so the color sliders might look a little different.
+tr: Este outfit se hizo con Poiyomi {0} y tienes {1}, así que los sliders de color pueden verse un poco distintos.
+en: Big Poiyomi updates, like 9 to 10, can change how the color sliders look.
+tr: Las actualizaciones grandes de Poiyomi, como de 9 a 10, pueden cambiar cómo se ven los sliders de color.
+en: {0} installed
+tr: {0} instalado
+en: installed, version unknown
+tr: instalado, versión desconocida
+en: not installed
+tr: no instalado
+en: outfit saved with {0}
+tr: outfit guardado con {0}
+en: outfit made with {0}
+tr: outfit hecho con {0}
+en: All good
+tr: Todo bien
+en: Nothing's broken.
+tr: No hay nada roto.
+en: This is an automated check, so it can miss things.
+tr: Es una revisión automática, así que se le pueden escapar cosas.
+en: Problem
+tr: Problema
+en: Warning
+tr: Aviso
+en: Note
+tr: Nota
+en: Select
+tr: Seleccionar
+en: Nothing to pick from on this avatar
+tr: No hay nada para elegir en este avatar
+en: What it *costs*
+tr: Lo que *cuesta*
+en: What this outfit adds to your avatar. Hidden pieces count too.
+tr: Lo que este outfit le suma a tu avatar. Las piezas ocultas también cuentan.
+en: Scanning...
+tr: Escaneando...
+en: This outfit
+tr: Este outfit
+en: estimated
+tr: estimada
+en: Put it on your avatar to see the bones it adds.
+tr: Pónselo a tu avatar para ver los huesos que agrega.
+en: Geometry
+tr: Geometría
+en: Mesh renderers
+tr: Mesh renderers
+en: {0} skinned, {1} static
+tr: {0} skinned, {1} estáticos
+en: Blendshapes
+tr: Blendshapes
+en: none
+tr: no hay
+en: {0} on {1}, most on {2} ({3})
+tr: {0} en {1}, la mayoría en {2} ({3})
+en: Used by its meshes
+tr: Usados por sus meshes
+en: adds {0} to {1} and merges {2} into its own
+tr: agrega {0} a {1} y fusiona {2} con los suyos
+en: {0} new bone
+tr: {0} hueso nuevo
+en: {0} new bones
+tr: {0} huesos nuevos
+en: can't tell, there's no Armature Link to follow
+tr: no se sabe, no hay Armature Link que seguir
+en: put it on your avatar to see
+tr: pónselo a tu avatar para verlo
+en: After linking
+tr: Después de enlazar
+en: {0}, moving {1}
+tr: {0}, {1} en movimiento
+en: {0} bone
+tr: {0} hueso
+en: {0} bones
+tr: {0} huesos
+en: Textures and VRAM
+tr: Texturas y VRAM
+en: Estimated VRAM
+tr: VRAM estimada
+en: {0}  (textures {1}, meshes {2})
+tr: {0}  (texturas {1}, meshes {2})
+en: Textures
+tr: Texturas
+en: {0}, the biggest at {1} px
+tr: {0}, la más grande de {1} px
+en: {0} texture
+tr: {0} textura
+en: {0} textures
+tr: {0} texturas
+en: Menu
+tr: Menú
+en: Toggles
+tr: Toggles
+en: can't read them without VRCFury
+tr: no se pueden leer sin VRCFury
+en: Other sliders
+tr: Otros sliders
+en: Separate parts
+tr: Partes separadas
+en: Shaders
+tr: Shaders
+en: {0} material
+tr: {0} material
+en: {0} materials
+tr: {0} materiales
+en: Other components
+tr: Otros componentes
+en: Components
+tr: Componentes
+en: VRChat rank
+tr: Rango en VRChat
+en: Your whole avatar with this outfit on. It's an estimate, VRCFury can change it a little when you upload.
+tr: Todo tu avatar con este outfit puesto. Es aproximado, VRCFury puede cambiarlo un poco al subirlo.
+en: Put the outfit on your avatar to see its rank.
+tr: Ponle el outfit a tu avatar para ver su rango.
+en: PC
+tr: PC
+en: {0} without this outfit
+tr: {0} sin este outfit
+en: Quest hides Poor and Very Poor avatars by default.
+tr: Quest oculta por defecto los avatares Poor y Very Poor.
+en: Holding Quest back
+tr: Lo que te frena en Quest
+en: Holding PC back
+tr: Lo que te frena en PC
+en: {0}, {1} allows {2}
+tr: {0}, {1} permite {2}
+en: Texture quality
+tr: Calidad de texturas
+en: Smaller textures use less memory. Default keeps them the way they came.
+tr: Las texturas más pequeñas usan menos memoria. Por defecto quedan como vienen.
+en: There are no textures to change on this outfit.
+tr: Este outfit no tiene texturas para cambiar.
+en: {0} normal map
+tr: {0} mapa de normales
+en: {0} normal maps
+tr: {0} mapas de normales
+en: {0} roughness map
+tr: {0} mapa de rugosidad
+en: {0} roughness maps
+tr: {0} mapas de rugosidad
+en: {0} metallic map
+tr: {0} mapa metálico
+en: {0} metallic maps
+tr: {0} mapas metálicos
+en: {0} menu icon
+tr: {0} ícono del menú
+en: {0} menu icons
+tr: {0} íconos del menú
+en: Covers {0} in {1}.
+tr: Incluye {0} en {1}.
+en: Right now: {0}.
+tr: Ahora: {0}.
+en: {0} skipped because another tool manages them.
+tr: No tocamos {0} que maneja otra herramienta.
+en: Lower saves memory but can make things blurry.
+tr: Más baja ahorra memoria, pero puede verse borroso.
+en: Normal maps
+tr: Mapas de normales
+en: Fine detail like stitching, folds and strings. Lower flattens it.
+tr: Detalle fino como costuras, pliegues y cordones. Más baja lo aplana.
+en: Roughness maps
+tr: Mapas de rugosidad
+en: How shiny or matte each spot looks. Lower softens it.
+tr: Qué tan brillante o mate se ve cada zona. Más bajo lo suaviza.
+en: Metallic maps
+tr: Mapas metálicos
+en: Where the metal shine goes. Lower softens its edges.
+tr: Dónde va el brillo metálico. Más bajo suaviza sus bordes.
+en: Menu icons
+tr: Íconos del menú
+en: Your menu pictures. Medium is plenty.
+tr: Las imágenes de tu menú. Con Media basta.
+en: Compression
+tr: Compresión
+en: Crunch compression
+tr: Compresión Crunch
+en: Smaller download, slightly softer look. Doesn't work with High.
+tr: Descarga más pequeña, aspecto un poco más suave. No funciona con Alta.
+en: Apply to {0}
+tr: Aplicar a {0}
+en: Nothing to change
+tr: Nada que cambiar
+en: Restore as shipped ({0})
+tr: Restaurar originales ({0})
+en: Restore as shipped
+tr: Restaurar originales
+en: Lowest quality. Smaller on Quest, same as Normal on PC.
+tr: La calidad más baja. Ocupa menos en Quest, igual que Normal en PC.
+en: Unity's standard. Most outfits ship with it.
+tr: El estándar de Unity. Así vienen casi todos los outfits.
+en: Sharpest. Can use twice the memory.
+tr: La más nítida. Puede usar el doble de memoria.
+en: Keeps each texture's own setting.
+tr: Cada textura conserva su propio ajuste.
+en: Crunch is slow, so this can take a few minutes.
+tr: Crunch es lento, así que esto puede tardar unos minutos.
+en: Change texture quality
+tr: Cambiar calidad de texturas
+en: {0} in {1} will change and Unity will reimport them.
+tr: Unity va a reimportar {0} en {1} con los nuevos ajustes.
+en: Restore as shipped puts them back anytime.
+tr: Puedes deshacerlo cuando quieras con Restaurar originales.
+en: Change them
+tr: Cambiar
+en: Stopped
+tr: Detenido
+en: Changed {0} of {1}. The rest weren't touched.
+tr: Cambiamos {0} de {1}. El resto quedó igual.
+en: Put {0} in {1} back the way they came?
+tr: ¿Restaurar {0} en {1} a su estado original?
+en: Restore
+tr: Restaurar
