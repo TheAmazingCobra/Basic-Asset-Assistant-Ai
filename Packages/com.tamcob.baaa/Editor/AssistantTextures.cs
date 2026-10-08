@@ -662,14 +662,19 @@ namespace BAAA
             return imp != null ? ReadRecord(imp) : null;
         }
 
+        // Textures changed before the tool was called BAAA carry its old name, which ended in
+        // "AssetAssistant". Theyre still ours and still come back as shipped.
+        private const string OldToolSuffix = "AssetAssistant";
+
         private static Record ReadRecord(TextureImporter imp)
         {
             string data = imp.userData;
-            if (string.IsNullOrEmpty(data) || data.IndexOf(Tool, StringComparison.Ordinal) < 0) return null;
+            if (string.IsNullOrEmpty(data)) return null;
+            if (data.IndexOf(Tool, StringComparison.Ordinal) < 0 && data.IndexOf(OldToolSuffix, StringComparison.Ordinal) < 0) return null;
             try
             {
                 var r = JsonUtility.FromJson<Record>(data);
-                return r != null && r.tool == Tool ? r : null;
+                return r != null && r.tool != null && (r.tool == Tool || r.tool.EndsWith(OldToolSuffix, StringComparison.Ordinal)) ? r : null;
             }
             catch (Exception)
             {

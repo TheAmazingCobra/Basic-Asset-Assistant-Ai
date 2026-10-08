@@ -40,8 +40,9 @@ namespace BAAA
 
     // the outfits pieces, aka the clothes its toggles turn on and off. taking one off tags it EditorOnly
     // (vrcfury and vrchat skip those on upload), hides it and removes its toggle + the physbones only it uses.
-    // on a prefab copy those are all just overrides so putting it back gives you the packs version again,
-    // on an unpacked outfit they wait in a hidden EditorOnly holder
+    // whatever is part of a prefab comes back by reverting its overrides, so a pack outfit goes back to the
+    // packs own version. everything else waits in a hidden EditorOnly holder: all of an unpacked outfit, and
+    // on a prefab copy whatever was added in the scene (a bare model with its toggles set up by hand)
     internal static class OutfitPieces
     {
         public const string HolderName = "Dropped pieces (Asset Assistant)";
@@ -102,21 +103,37 @@ namespace BAAA
                 }
             }
 
-            // toggles parked by an earlier drop on an unpacked outfit
+            // toggles parked by an earlier drop. a record without one belongs to a piece whose toggle came
+            // from the prefab, and keeps the rest of what that drop changed
+            var records = new List<Transform>();
             Transform holder = root.transform.Find(HolderName);
             if (holder != null)
             {
                 foreach (Transform record in holder)
+                {
+                    bool toggle = false;
                     foreach (Transform part in record)
+                    {
                         foreach (var mb in part.GetComponents<MonoBehaviour>())
-                            if (AssistantScope.IsVrcFury(mb) && VrcFuryData.FeatureType(mb) == "Toggle")
-                                candidates.Add(new Candidate { Feature = new SerializedObject(mb).FindProperty("content"), Parked = record });
+                        {
+                            if (!AssistantScope.IsVrcFury(mb) || VrcFuryData.FeatureType(mb) != "Toggle") continue;
+                            candidates.Add(new Candidate { Feature = new SerializedObject(mb).FindProperty("content"), Parked = record });
+                            toggle = true;
+                        }
+                    }
+                    if (!toggle) records.Add(record);
+                }
             }
 
             foreach (Candidate c in candidates)
             {
                 Piece p = ToPiece(c);
                 if (p != null) pieces.Add(p);
+            }
+            foreach (Transform record in records)
+            {
+                Piece owner = pieces.Find(p => p.Dropped && p.Parked == null && record.name == PiecePrefix + p.Name);
+                if (owner != null) owner.Parked = record;
             }
             DropGroupToggles(pieces);
             SortByPlace(pieces, root);
@@ -539,8 +556,12 @@ namespace BAAA
                 }
             }
             if (!p.Dropped) cost.PhysBones = p.PhysBones.Count;
-            else if (p.Parked != null) cost.PhysBones = ParkedPhysBones(p.Parked);
-            else foreach (RemovedComponent r in p.Removed) if (r.assetComponent != null && r.assetComponent.GetType().FullName == AssistantScope.PhysBoneType) cost.PhysBones++;
+            else
+            {
+                // A dropped piece's physbones wait in the holder, as prefab overrides, or both.
+                if (p.Parked != null) cost.PhysBones = ParkedPhysBones(p.Parked);
+                foreach (RemovedComponent r in p.Removed) if (r.assetComponent != null && r.assetComponent.GetType().FullName == AssistantScope.PhysBoneType) cost.PhysBones++;
+            }
             return cost;
         }
 
@@ -561,37 +582,55 @@ namespace BAAA
         {
             if (!CanEdit(o) || p.Dropped) return;
             Undo.IncrementCurrentGroup();
-            Undo.SetCurrentGroupName(Lang.T("Take off {0}", p.Name));
+            string undo = Lang.T("Take off {0}", p.Name);
+            Undo.SetCurrentGroupName(undo);
             int group = Undo.GetCurrentGroup();
             Transform rootT = o.Root.transform;
-            bool instance = PrefabUtility.IsPartOfPrefabInstance(o.Root);
-            Transform record = instance ? null : NewRecord(rootT, p.Name);
-
-            foreach (GameObject go in p.Objects)
-            {
-                if (go == null) continue;
-                if (record != null) AddRecord(record, ObjectPrefix + Path(go.transform, rootT) + "|" + (go.activeSelf ? "1" : "0") + "|" + go.tag);
-                Undo.RecordObject(go, Lang.T("Take off {0}", p.Name));
-                go.tag = "EditorOnly";
-                go.SetActive(false);
-                if (instance) PrefabUtility.RecordPrefabInstancePropertyModifications(go);
-            }
 
             var parts = new List<Component>();
             if (p.Toggle != null) parts.Add(p.Toggle);
             parts.AddRange(p.PhysBones);
+
+            // a pack outfit's pieces are all prefab parts and need no record. anything the
+            // prefab can't give back (added in the scene, or the whole outfit unpacked) does
+            bool record = p.Objects.Exists(go => go != null && !FromPrefab(go)) || parts.Exists(c => c != null && !FromPrefab(c));
+            Transform kept = record ? NewRecord(rootT, p.Name) : null;
+
+            foreach (GameObject go in p.Objects)
+            {
+                if (go == null) continue;
+                if (kept != null) AddRecord(kept, ObjectPrefix + Path(go.transform, rootT) + "|" + (go.activeSelf ? "1" : "0") + "|" + go.tag);
+                Undo.RecordObject(go, undo);
+                go.tag = "EditorOnly";
+                go.SetActive(false);
+                if (PrefabUtility.IsPartOfPrefabInstance(go)) PrefabUtility.RecordPrefabInstancePropertyModifications(go);
+            }
+
             foreach (Component c in parts)
             {
                 if (c == null) continue;
-                if (record != null)
+                // a prefab part leaves a removed component override behind, anything else
+                // would just be gone, so a copy of it waits in the holder
+                if (!FromPrefab(c))
                 {
-                    Transform part = AddRecord(record, ComponentPrefix + Path(c.transform, rootT));
+                    Transform part = AddRecord(kept, ComponentPrefix + Path(c.transform, rootT));
                     ComponentUtility.CopyComponent(c);
                     ComponentUtility.PasteComponentAsNew(part.gameObject);
                 }
                 Undo.DestroyObjectImmediate(c);
             }
             Undo.CollapseUndoOperations(group);
+        }
+
+        // part of the prefab itself, so taking it off leaves an override that can be reverted
+        private static bool FromPrefab(GameObject go)
+        {
+            return PrefabUtility.IsPartOfPrefabInstance(go) && !PrefabUtility.IsAddedGameObjectOverride(go);
+        }
+
+        private static bool FromPrefab(Component c)
+        {
+            return PrefabUtility.IsPartOfPrefabInstance(c) && !PrefabUtility.IsAddedComponentOverride(c);
         }
 
         public static void Restore(Outfit o, Piece p)
@@ -614,9 +653,13 @@ namespace BAAA
             Undo.CollapseUndoOperations(group);
         }
 
+        // both halves of a drop come back: what waits in the holder, and what the prefab
+        // remembers as overrides. A piece can have either or both
         private static void RestoreOne(Outfit o, Piece p)
         {
             Transform rootT = o.Root.transform;
+            string undo = Lang.T("Put back {0}", p.Name);
+            var recorded = new HashSet<GameObject>();
             if (p.Parked != null)
             {
                 var parts = new List<Transform>();
@@ -631,9 +674,17 @@ namespace BAAA
                         string path = string.Join("|", bits, 0, bits.Length - 2);
                         Transform t = path.Length == 0 ? rootT : rootT.Find(path);
                         if (t == null) continue;
-                        Undo.RecordObject(t.gameObject, Lang.T("Put back {0}", p.Name));
+                        Undo.RecordObject(t.gameObject, undo);
                         t.gameObject.tag = bits[bits.Length - 1];
                         t.gameObject.SetActive(bits[bits.Length - 2] == "1");
+                        if (PrefabUtility.IsPartOfPrefabInstance(t.gameObject))
+                        {
+                            PrefabUtility.RecordPrefabInstancePropertyModifications(t.gameObject);
+                            // back to what the prefab says means no override at all
+                            DropIfSameAsPrefab(t.gameObject, "m_TagString");
+                            DropIfSameAsPrefab(t.gameObject, "m_IsActive");
+                        }
+                        recorded.Add(t.gameObject);
                     }
                     else if (part.name.StartsWith(ComponentPrefix, StringComparison.Ordinal))
                     {
@@ -651,12 +702,11 @@ namespace BAAA
                 Transform holder = p.Parked.parent;
                 Undo.DestroyObjectImmediate(p.Parked.gameObject);
                 if (holder != null && holder.childCount == 0) Undo.DestroyObjectImmediate(holder.gameObject);
-                return;
             }
 
             foreach (GameObject go in p.Objects)
             {
-                if (go == null) continue;
+                if (go == null || recorded.Contains(go)) continue;
                 if (PrefabUtility.IsPartOfPrefabInstance(go))
                 {
                     RevertIfOverridden(go, "m_TagString");
@@ -664,7 +714,7 @@ namespace BAAA
                 }
                 else
                 {
-                    Undo.RecordObject(go, Lang.T("Put back {0}", p.Name));
+                    Undo.RecordObject(go, undo);
                     go.tag = "Untagged";
                 }
             }
@@ -675,6 +725,16 @@ namespace BAAA
         {
             var prop = new SerializedObject(go).FindProperty(property);
             if (prop != null && prop.prefabOverride) PrefabUtility.RevertPropertyOverride(prop, InteractionMode.UserAction);
+        }
+
+        private static void DropIfSameAsPrefab(GameObject go, string property)
+        {
+            GameObject source = PrefabUtility.GetCorrespondingObjectFromSource(go);
+            if (source == null) return;
+            var mine = new SerializedObject(go).FindProperty(property);
+            var theirs = new SerializedObject(source).FindProperty(property);
+            if (mine != null && theirs != null && mine.prefabOverride && SerializedProperty.DataEquals(mine, theirs))
+                PrefabUtility.RevertPropertyOverride(mine, InteractionMode.UserAction);
         }
 
         private static Transform NewRecord(Transform rootT, string pieceName)
