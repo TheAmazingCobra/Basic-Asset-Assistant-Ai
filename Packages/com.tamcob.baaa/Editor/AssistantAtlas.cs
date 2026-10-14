@@ -209,6 +209,8 @@ namespace BAAA
         // atlasMax; cells shrink by half until they fit. Returns the side.
         private static int PackCells(List<Cell> cells, int atlasMax)
         {
+            // cells stop at 32, lower only on the small retro atlases so a few materials still fit in 64 or 128
+            int floor = Math.Min(32, Math.Max(8, atlasMax / 8));
             var sizes = new int[cells.Count];
             for (int i = 0; i < cells.Count; i++) sizes[i] = Math.Min(NextPow2(cells[i].Size), atlasMax);
             for (int round = 0; ; round++)
@@ -235,7 +237,7 @@ namespace BAAA
                     }
                     return side;
                 }
-                for (int i = 0; i < sizes.Length; i++) sizes[i] = Math.Max(32, sizes[i] / 2);
+                for (int i = 0; i < sizes.Length; i++) sizes[i] = Math.Max(floor, sizes[i] / 2);
             }
         }
 
@@ -289,7 +291,16 @@ namespace BAAA
         // drawing textures into the atlas
         // -------------------------------------------------------------------
 
-        private static Texture2D BakeProperty(string prop, List<Cell> cells, int side, GeneratedFolder folder, string name)
+        // retro atlases are pixel sharp with no mipmaps. a remake writes over the last png and its import
+        // settings stay, so filtering always gets set, back to bilinear when its not retro
+        private static void Filtering(TextureImporter imp, bool retro)
+        {
+            imp.filterMode = retro ? FilterMode.Point : FilterMode.Bilinear;
+            imp.mipmapEnabled = !retro;
+            imp.streamingMipmaps = !retro;
+        }
+
+        private static Texture2D BakeProperty(string prop, List<Cell> cells, int side, bool retro, GeneratedFolder folder, string name)
         {
             Texture sample = null;
             Material shaderOwner = cells[0].Members[0].Material;
@@ -318,15 +329,14 @@ namespace BAAA
                 imp.sRGBTexture = !linear;
                 imp.alphaSource = TextureImporterAlphaSource.FromInput;
                 imp.alphaIsTransparency = sampleImporter != null && sampleImporter.alphaIsTransparency;
-                imp.mipmapEnabled = true;
-                imp.streamingMipmaps = true;
+                Filtering(imp, retro);
                 imp.wrapMode = TextureWrapMode.Clamp;
                 imp.maxTextureSize = side;
                 imp.textureCompression = TextureImporterCompression.Compressed;
                 imp.crunchedCompression = false;
                 if (sampleImporter != null)
                 {
-                    imp.filterMode = sampleImporter.filterMode;
+                    if (!retro) imp.filterMode = sampleImporter.filterMode;
                     imp.anisoLevel = sampleImporter.anisoLevel;
                 }
             });
@@ -420,7 +430,7 @@ namespace BAAA
             return Shader.Find(ToonStandard) ?? Shader.Find(ToonLit);
         }
 
-        public static MaterialPlan PlanQuest(List<Renderer> renderers, int atlasMax, GeneratedFolder folder, string baseName)
+        public static MaterialPlan PlanQuest(List<Renderer> renderers, int atlasMax, bool retro, GeneratedFolder folder, string baseName)
         {
             var plan = new MaterialPlan();
             Shader shader = QuestShader();
@@ -472,8 +482,7 @@ namespace BAAA
             {
                 imp.textureType = isNormal ? TextureImporterType.NormalMap : TextureImporterType.Default;
                 imp.sRGBTexture = !isNormal;
-                imp.mipmapEnabled = true;
-                imp.streamingMipmaps = true;
+                Filtering(imp, retro);
                 imp.wrapMode = TextureWrapMode.Clamp;
                 imp.maxTextureSize = side;
                 imp.textureCompression = TextureImporterCompression.Compressed;

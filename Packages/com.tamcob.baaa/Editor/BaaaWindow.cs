@@ -39,6 +39,8 @@ namespace BAAA
         private static readonly string[] TextureSizeLabels = { N("Default"), N("Low · 1K"), N("Medium · 2K"), N("High · 4K") };
         private static readonly string[] IconSizeLabels = { N("Default"), N("Low · 64"), N("Medium · 256"), N("High · 512") };
         private static readonly string[] CompressionLabels = { N("Default"), N("Low"), N("Normal"), N("High") };
+        private static readonly string[] RetroSizeLabels = { N("64"), N("128"), N("256"), N("512"), N("1K") };
+        private static readonly int[] RetroSizes = { 64, 128, 256, 512, 1024 };
 
         private List<Outfit> _outfits = new List<Outfit>();
         private readonly Dictionary<Outfit, List<Issue>> _issues = new Dictionary<Outfit, List<Issue>>();
@@ -873,30 +875,44 @@ namespace BAAA
                 GUILayout.Label(T("{0} skipped because another tool manages them.", Plural(_pack.OtherTool, "{0} texture", "{0} textures")), _styleMini);
 
             var next = _choice;
-            ScanSection(T("Textures"));
-            next.Size = (SizeLevel)Segmented((int)_choice.Size, Ts(TextureSizeLabels), -1);
-            GUILayout.Space(4);
-            GUILayout.Label(T("Lower saves memory but can make things blurry."), _styleMini);
-
-            ScanSection(T("Normal maps"));
-            next.NormalSize = (SizeLevel)Segmented((int)_choice.NormalSize, Ts(TextureSizeLabels), -1);
-            GUILayout.Space(4);
-            GUILayout.Label(T("Fine detail like stitching, folds and strings. Lower flattens it."), _styleMini);
-
-            // only when the pack has them
-            if (_pack.Roughness.Count > 0)
+            ScanSection(T("Retro"));
+            next.Retro = ToggleButton(T("Retro mode"), _choice.Retro);
+            GUILayout.Label(T("Pixel look. Point filtering, no mipmaps, and one small size for every texture and map. Menu icons keep their own row."), _styleMini);
+            // what shows goes by _choice, so the layout stays the same for the whole frame the switch flips in
+            if (_choice.Retro)
             {
-                ScanSection(T("Roughness maps"));
-                next.RoughnessSize = (SizeLevel)Segmented((int)_choice.RoughnessSize, Ts(TextureSizeLabels), -1);
-                GUILayout.Space(4);
-                GUILayout.Label(T("How shiny or matte each spot looks. Lower softens it."), _styleMini);
+                GUILayout.Space(8);
+                next.RetroSize = PickSize(_choice.RetroMax, RetroSizes, Ts(RetroSizeLabels));
             }
-            if (_pack.Metallic.Count > 0)
+
+            // retro gives every texture and map one size, so their own rows would fight it
+            if (!_choice.Retro)
             {
-                ScanSection(T("Metallic maps"));
-                next.MetallicSize = (SizeLevel)Segmented((int)_choice.MetallicSize, Ts(TextureSizeLabels), -1);
+                ScanSection(T("Textures"));
+                next.Size = (SizeLevel)Segmented((int)_choice.Size, Ts(TextureSizeLabels), -1);
                 GUILayout.Space(4);
-                GUILayout.Label(T("Where the metal shine goes. Lower softens its edges."), _styleMini);
+                GUILayout.Label(T("Lower saves memory but can make things blurry."), _styleMini);
+
+                ScanSection(T("Normal maps"));
+                next.NormalSize = (SizeLevel)Segmented((int)_choice.NormalSize, Ts(TextureSizeLabels), -1);
+                GUILayout.Space(4);
+                GUILayout.Label(T("Fine detail like stitching, folds and strings. Lower flattens it."), _styleMini);
+
+                // only when the pack has them
+                if (_pack.Roughness.Count > 0)
+                {
+                    ScanSection(T("Roughness maps"));
+                    next.RoughnessSize = (SizeLevel)Segmented((int)_choice.RoughnessSize, Ts(TextureSizeLabels), -1);
+                    GUILayout.Space(4);
+                    GUILayout.Label(T("How shiny or matte each spot looks. Lower softens it."), _styleMini);
+                }
+                if (_pack.Metallic.Count > 0)
+                {
+                    ScanSection(T("Metallic maps"));
+                    next.MetallicSize = (SizeLevel)Segmented((int)_choice.MetallicSize, Ts(TextureSizeLabels), -1);
+                    GUILayout.Space(4);
+                    GUILayout.Label(T("Where the metal shine goes. Lower softens its edges."), _styleMini);
+                }
             }
 
             ScanSection(T("Menu icons"));
@@ -916,7 +932,8 @@ namespace BAAA
 
             if (next.Size != _choice.Size || next.NormalSize != _choice.NormalSize || next.IconSize != _choice.IconSize
                 || next.RoughnessSize != _choice.RoughnessSize || next.MetallicSize != _choice.MetallicSize
-                || next.Compression != _choice.Compression || next.Crunch != _choice.Crunch)
+                || next.Compression != _choice.Compression || next.Crunch != _choice.Crunch
+                || next.Retro != _choice.Retro || next.RetroSize != _choice.RetroSize)
             {
                 _choice = next;
                 RefreshPack(false);

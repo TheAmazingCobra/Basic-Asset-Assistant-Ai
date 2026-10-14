@@ -23,6 +23,15 @@ namespace BAAA
         public SizeLevel MetallicSize;
         public CompressionChoice Compression;
         public bool Crunch;
+        // retro: point filtering, no mipmaps and one small size for every texture and map
+        public bool Retro;
+        // 0 is the 256 the picker starts on
+        public int RetroSize;
+
+        public int RetroMax
+        {
+            get { return RetroSize > 0 ? RetroSize : 256; }
+        }
 
         public SizeLevel SizeFor(TextureKind kind)
         {
@@ -101,6 +110,12 @@ namespace BAAA
             public string size = "";
             public string compression = "";
             public bool crunch;
+            // filtering and mipmaps as shipped. records from before retro mode dont have them
+            public bool hasFilter;
+            public int filterMode;
+            public bool mipmapEnabled;
+            public bool retro;
+            public int retroSize;
         }
 
         private struct Settings
@@ -309,14 +324,21 @@ namespace BAAA
                 Compression = CompressionChoice.Default,
             };
             var parts = new List<string>();
-            parts.Add(Lang.T("textures {0}", KindState(pack.Textures, TextureKind.Texture, ref consistent, ref choice.Size)));
-            parts.Add(Lang.T("normal maps {0}", KindState(pack.NormalMaps, TextureKind.NormalMap, ref consistent, ref choice.NormalSize)));
+            // 0 til a kind with records says, then its retro size or -1 for not retro
+            int retro = 0;
+            parts.Add(Lang.T("textures {0}", KindState(pack.Textures, TextureKind.Texture, ref consistent, ref choice.Size, ref retro)));
+            parts.Add(Lang.T("normal maps {0}", KindState(pack.NormalMaps, TextureKind.NormalMap, ref consistent, ref choice.NormalSize, ref retro)));
             // only the kinds a pack has, most don't come with roughness or metallic maps
             if (pack.Roughness.Count > 0)
-                parts.Add(Lang.T("roughness maps {0}", KindState(pack.Roughness, TextureKind.Roughness, ref consistent, ref choice.RoughnessSize)));
+                parts.Add(Lang.T("roughness maps {0}", KindState(pack.Roughness, TextureKind.Roughness, ref consistent, ref choice.RoughnessSize, ref retro)));
             if (pack.Metallic.Count > 0)
-                parts.Add(Lang.T("metallic maps {0}", KindState(pack.Metallic, TextureKind.Metallic, ref consistent, ref choice.MetallicSize)));
-            parts.Add(Lang.T("menu icons {0}", KindState(pack.Icons, TextureKind.Icon, ref consistent, ref choice.IconSize)));
+                parts.Add(Lang.T("metallic maps {0}", KindState(pack.Metallic, TextureKind.Metallic, ref consistent, ref choice.MetallicSize, ref retro)));
+            parts.Add(Lang.T("menu icons {0}", KindState(pack.Icons, TextureKind.Icon, ref consistent, ref choice.IconSize, ref retro)));
+            if (retro > 0)
+            {
+                choice.Retro = true;
+                choice.RetroSize = retro;
+            }
 
             Record first = null;
             bool mixed = false;
@@ -346,15 +368,22 @@ namespace BAAA
             return string.Join(Lang.List, parts.ToArray());
         }
 
-        private static string KindState(List<string> paths, TextureKind kind, ref bool consistent, ref SizeLevel level)
+        private static string KindState(List<string> paths, TextureKind kind, ref bool consistent, ref SizeLevel level, ref int retro)
         {
             string seen = null;
+            int seenRetro = 0;
             foreach (string path in paths)
             {
                 Record r = RecordAt(path);
                 if (r == null) continue;
-                if (seen == null) seen = r.size;
-                else if (seen != r.size)
+                // the retro size, or -1 when this one isnt retro
+                int mine = r.retro ? (r.retroSize > 0 ? r.retroSize : 256) : -1;
+                if (seen == null)
+                {
+                    seen = r.size;
+                    seenRetro = mine;
+                }
+                else if (seen != r.size || seenRetro != mine)
                 {
                     consistent = false;
                     return Lang.T("mixed");
@@ -368,7 +397,13 @@ namespace BAAA
                 return Lang.T("changed");
             }
             level = parsed;
-            return SizeName(parsed, kind);
+            // icons never go retro, so they dont count. every other kind has to agree on it
+            if (kind != TextureKind.Icon)
+            {
+                if (retro == 0) retro = seenRetro;
+                else if (retro != seenRetro) consistent = false;
+            }
+            return seenRetro > 0 ? Lang.T("retro {0}", seenRetro) : SizeName(parsed, kind);
         }
 
         public static int Pending(PackTextures pack, TextureChoice choice)
@@ -435,22 +470,37 @@ namespace BAAA
             var imp = AssetImporter.GetAtPath(path) as TextureImporter;
             if (imp == null || OtherToolOwns(imp)) return false;
 
-            Record shipped = ReadRecord(imp) ?? Capture(imp);
+            Record read = ReadRecord(imp);
+            Record shipped = read ?? Capture(imp);
+            // records from before retro mode never touched filtering or mipmaps, so the importer still has them as shipped
+            if (!shipped.hasFilter)
+            {
+                shipped.filterMode = (int)imp.filterMode;
+                shipped.mipmapEnabled = imp.mipmapEnabled;
+                shipped.hasFilter = true;
+            }
+            // the record as it reads now, so one an older version wrote doesnt count as a change on its own
+            string had = read != null ? JsonUtility.ToJson(shipped) : (imp.userData ?? "");
             SizeLevel level = choice.SizeFor(kind);
             // Icons keep their own compression; the compression choice is for textures.
             CompressionChoice compression = kind == TextureKind.Icon ? CompressionChoice.Default : choice.Compression;
             bool crunch = kind != TextureKind.Icon && choice.Crunch;
             bool normalMap = kind == TextureKind.NormalMap;
+            // menu icons are vrchat menu pictures, they stay on their own row
+            bool retro = choice.Retro && kind != TextureKind.Icon;
             // the size picked, as far as the source image goes. Unity never scales up
             int source = SourceLimit(imp);
 
-            int max = level == SizeLevel.Default ? shipped.maxTextureSize : Math.Min(MaxSize(level, kind), source);
+            int max = retro ? Math.Min(choice.RetroMax, source) : level == SizeLevel.Default ? shipped.maxTextureSize : Math.Min(MaxSize(level, kind), source);
             Settings want = Want(Shipped(shipped), max, compression, crunch, normalMap);
+            // retro is point filtered with no mipmaps, otherwise they stay as shipped
+            FilterMode filter = retro ? FilterMode.Point : (FilterMode)shipped.filterMode;
+            bool mips = !retro && shipped.mipmapEnabled;
             var wantPlatforms = new List<KeyValuePair<string, Settings>>();
-            bool backToShipped = Same(want, Shipped(shipped));
+            bool backToShipped = Same(want, Shipped(shipped)) && filter == (FilterMode)shipped.filterMode && mips == shipped.mipmapEnabled;
             foreach (var p in shipped.platforms)
             {
-                int platformMax = level == SizeLevel.Default ? p.maxTextureSize : Math.Min(MaxSize(level, kind), source);
+                int platformMax = retro ? Math.Min(choice.RetroMax, source) : level == SizeLevel.Default ? p.maxTextureSize : Math.Min(MaxSize(level, kind), source);
                 Settings ps = Want(Shipped(p), platformMax, compression, crunch, normalMap);
                 wantPlatforms.Add(new KeyValuePair<string, Settings>(p.platform, ps));
                 if (!Same(ps, Shipped(p))) backToShipped = false;
@@ -462,16 +512,20 @@ namespace BAAA
                 shipped.size = level.ToString();
                 shipped.compression = compression.ToString();
                 shipped.crunch = crunch;
+                shipped.retro = retro;
+                shipped.retroSize = retro ? choice.RetroMax : 0;
                 data = JsonUtility.ToJson(shipped);
             }
 
-            bool settingsMatch = Same(Current(imp), want);
+            bool settingsMatch = Same(Current(imp), want) && imp.filterMode == filter && imp.mipmapEnabled == mips;
             foreach (var p in wantPlatforms)
                 if (!Same(Current(imp.GetPlatformTextureSettings(p.Key)), p.Value)) settingsMatch = false;
-            if (settingsMatch && (imp.userData ?? "") == data) return false;
+            if (settingsMatch && had == data) return false;
             if (!write) return true;
 
             Set(imp, want);
+            imp.filterMode = filter;
+            imp.mipmapEnabled = mips;
             foreach (var p in wantPlatforms)
             {
                 var s = imp.GetPlatformTextureSettings(p.Key);
@@ -497,6 +551,12 @@ namespace BAAA
                 var s = imp.GetPlatformTextureSettings(p.platform);
                 Set(s, Shipped(p));
                 imp.SetPlatformTextureSettings(s);
+            }
+            // records from before retro mode never changed these
+            if (r.hasFilter)
+            {
+                imp.filterMode = (FilterMode)r.filterMode;
+                imp.mipmapEnabled = r.mipmapEnabled;
             }
             imp.userData = "";
             imp.SaveAndReimport();
@@ -636,6 +696,9 @@ namespace BAAA
                 textureCompression = (int)imp.textureCompression,
                 crunchedCompression = imp.crunchedCompression,
                 compressionQuality = imp.compressionQuality,
+                hasFilter = true,
+                filterMode = (int)imp.filterMode,
+                mipmapEnabled = imp.mipmapEnabled,
             };
             // only per-platform settings that override the default can quietly
             // win over the choice, so only those are followed.

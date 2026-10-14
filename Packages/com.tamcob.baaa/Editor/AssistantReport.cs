@@ -79,7 +79,7 @@ namespace BAAA
             if (o.Copy == null) return "the original";
             CopyRecord c = o.Copy;
             string text = OutfitCopies.Label(c.Kind) + " copy of \"" + c.OriginalName + "\"";
-            if (c.AtlasSize > 0) text += ", " + c.AtlasSize / 1024 + "K atlas";
+            if (c.AtlasSize > 0) text += ", " + (c.AtlasSize >= 1024 ? c.AtlasSize / 1024 + "K" : c.AtlasSize.ToString()) + (c.Retro ? " retro" : "") + " atlas";
             text += ", keeps " + Mathf.RoundToInt(c.Keep * 100f) + "% of the triangles";
             if (o.Original == null) text += ", original missing";
             if (OutfitCopies.OutOfDate(c)) text += ", out of date";

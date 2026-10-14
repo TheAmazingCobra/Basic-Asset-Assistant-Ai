@@ -314,6 +314,10 @@ en: Every material fits on the atlas as it is.
 tr: すべてのマテリアルがそのままアトラスに収まります。
 en: Atlas size
 tr: アトラスサイズ
+en: Retro mode
+tr: レトロモード
+en: Pixel look. Point filtering, no mipmaps. Every texture shares this atlas, so each one gets a slice of it.
+tr: ドット絵風の見た目です。フィルターはPoint、ミップマップなし。すべてのテクスチャがこのアトラスを共有するので、それぞれが一部分だけを使います。
 en: 2K is the lightest, 8K the sharpest. The atlas only gets as big as it needs.
 tr: 2Kが最も軽く、8Kが最もきれいです。アトラスは必要以上に大きくなりません。
 en: Make Extreme version
@@ -856,6 +860,8 @@ en: mixed
 tr: 混在
 en: changed
 tr: 変更済み
+en: retro {0}
+tr: レトロ {0}
 en: Changing texture quality
 tr: テクスチャ画質を変更中
 en: Restoring textures as shipped
@@ -892,6 +898,16 @@ en: Normal
 tr: 標準
 en: High
 tr: 高品質
+en: 64
+tr: 64
+en: 128
+tr: 128
+en: 256
+tr: 256
+en: 512
+tr: 512
+en: 1K
+tr: 1K
 en: Asset Assistant
 tr: Asset Assistant
 en: No outfits *yet*
@@ -1090,6 +1106,10 @@ en: Right now: {0}.
 tr: 現在の設定: {0}。
 en: {0} skipped because another tool manages them.
 tr: {0}は別のツールが管理しているため対象外です。
+en: Retro
+tr: レトロ
+en: Pixel look. Point filtering, no mipmaps, and one small size for every texture and map. Menu icons keep their own row.
+tr: ドット絵風の見た目です。フィルターはPoint、ミップマップなし、すべてのテクスチャとマップを1つの小さいサイズにします。メニューアイコンは専用の行で別に設定します。
 en: Lower saves memory but can make things blurry.
 tr: 下げるとメモリが減りますが、ぼやけることがあります。
 en: Normal maps

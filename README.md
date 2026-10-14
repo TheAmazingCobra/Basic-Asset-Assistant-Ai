@@ -46,10 +46,10 @@ Any VRCFury outfit you put on an avatar. A creator can also add a small file to 
 | Colors | Choose the color your outfit loads in and see it on your avatar. |
 | Features | Turn off what you don't need, like color sliders, PhysBones, colliders and contacts. |
 | Perf Scanner | What the outfit adds to your avatar, and your VRChat rank with and without it. |
-| Performance | Texture sizes and compression, with their own rows for normal, roughness and metallic maps and menu icons. |
+| Performance | Texture sizes and compression, with their own rows for normal, roughness and metallic maps and menu icons, plus a Retro mode: point filtering, no mipmaps, sizes from 64 to 1K. |
 | VRCFury | Adds VRCFury's built-in optimizers to your avatar. |
-| Fuser | Fuses the outfit into one mesh. Extreme also puts every texture on one atlas. |
-| Quest | Makes a Quest copy and swaps it in. Your PC version stays the same. |
+| Fuser | Fuses the outfit into one mesh. Extreme also puts every texture on one atlas. Retro mode makes a pixel-look atlas. |
+| Quest | Makes a Quest copy and swaps it in. Your PC version stays the same. Retro mode makes a pixel-look atlas. |
 | Decimator | Fewer triangles, while toggles, color changers and pieces keep working. |
 
 Every outfit in your scene gets a star in the Hierarchy. Green means all good. Red means something needs a look. Yellow means it's a Fused, Extreme, Quest or Decimated version. Click the star to open BAAA on that outfit.

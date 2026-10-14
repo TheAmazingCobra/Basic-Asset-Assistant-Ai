@@ -312,6 +312,10 @@ en: Every material fits on the atlas as it is.
 tr: Todos os materiais cabem no atlas como estão.
 en: Atlas size
 tr: Tamanho do atlas
+en: Retro mode
+tr: Modo retrô
+en: Pixel look. Point filtering, no mipmaps. Every texture shares this atlas, so each one gets a slice of it.
+tr: Visual pixelado. Filtro Point, sem mipmaps. Todas as texturas dividem este atlas, então cada uma fica com um pedaço dele.
 en: 2K is the lightest, 8K the sharpest. The atlas only gets as big as it needs.
 tr: 2K é o mais leve, 8K o mais nítido. O atlas só cresce o quanto precisa.
 en: Make Extreme version
@@ -854,6 +858,8 @@ en: mixed
 tr: tamanhos variados
 en: changed
 tr: tamanho alterado
+en: retro {0}
+tr: retrô {0}
 en: Changing texture quality
 tr: Mudando a qualidade das texturas
 en: Restoring textures as shipped
@@ -890,6 +896,16 @@ en: Normal
 tr: Normal
 en: High
 tr: Alta
+en: 64
+tr: 64
+en: 128
+tr: 128
+en: 256
+tr: 256
+en: 512
+tr: 512
+en: 1K
+tr: 1K
 en: Asset Assistant
 tr: Asset Assistant
 en: No outfits *yet*
@@ -1088,6 +1104,10 @@ en: Right now: {0}.
 tr: Agora: {0}.
 en: {0} skipped because another tool manages them.
 tr: Pulamos {0} que outra ferramenta já gerencia.
+en: Retro
+tr: Retrô
+en: Pixel look. Point filtering, no mipmaps, and one small size for every texture and map. Menu icons keep their own row.
+tr: Visual pixelado. Filtro Point, sem mipmaps e um único tamanho pequeno para todas as texturas e mapas. Os ícones do menu ficam na linha deles.
 en: Lower saves memory but can make things blurry.
 tr: Mais baixo economiza memória, mas pode deixar tudo borrado.
 en: Normal maps

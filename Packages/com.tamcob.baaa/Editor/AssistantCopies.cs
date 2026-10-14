@@ -29,6 +29,8 @@ namespace BAAA
         // scene and place of the original, so a remake reuses the same files
         public string MadeFrom = "";
         public int AtlasSize;
+        // Extreme and Quest: a pixel look atlas, point filtered with no mipmaps
+        public bool Retro;
         // Extreme and Quest: the fused mesh, and the full-detail one the decimator starts from
         public string Mesh = "";
         public string FullMesh = "";
@@ -263,7 +265,7 @@ namespace BAAA
         // -------------------------------------------------------------------
 
         // returns null when it worked, or what went wrong.
-        public static string Make(Outfit o, CopyKind kind, int atlasSize, CopyRecord previous, out GameObject made)
+        public static string Make(Outfit o, CopyKind kind, int atlasSize, bool retro, CopyRecord previous, out GameObject made)
         {
             made = null;
             if (!OutfitPieces.CanEdit(o)) return Lang.T("Put the outfit in your scene first.");
@@ -313,7 +315,7 @@ namespace BAAA
                 }
                 else
                 {
-                    MakeFused(o, kind, atlasSize, root, pieceToggles, folder, copyName, previous, colors, out mesh, out full);
+                    MakeFused(o, kind, atlasSize, retro, root, pieceToggles, folder, copyName, previous, colors, out mesh, out full);
                 }
 
                 Progress(Lang.T("Saving the {0} version...", Shown(kind)), 0.85f);
@@ -335,6 +337,7 @@ namespace BAAA
                     OriginalActive = original.activeSelf,
                     MadeFrom = madeFrom,
                     AtlasSize = atlasSize,
+                    Retro = retro,
                     Mesh = mesh != null ? GuidOf(mesh) : "",
                     FullMesh = full != null ? GuidOf(full) : "",
                     Keep = 1f,
@@ -393,7 +396,7 @@ namespace BAAA
 
         // Fused, Extreme and Quest: the picked colors and what the toggles do at rest,
         // then every piece that shows fused into one mesh
-        private static void MakeFused(Outfit o, CopyKind kind, int atlasSize, Transform root, HashSet<string> pieceToggles,
+        private static void MakeFused(Outfit o, CopyKind kind, int atlasSize, bool retro, Transform root, HashSet<string> pieceToggles,
             GeneratedFolder folder, string copyName, CopyRecord previous, List<CopyColor> colors, out Mesh mesh, out Mesh full)
         {
             // before ApplyToggles takes the sliders away
@@ -418,9 +421,9 @@ namespace BAAA
 
             Progress(Lang.T("Packing the textures..."), 0.25f);
             MaterialPlan plan = kind == CopyKind.Extreme
-                ? AtlasBuilder.PlanExtreme(fuse, atlasSize, folder, copyName)
+                ? AtlasBuilder.PlanExtreme(fuse, atlasSize, retro, folder, copyName)
                 : kind == CopyKind.Quest
-                    ? AtlasBuilder.PlanQuest(fuse, atlasSize, folder, copyName)
+                    ? AtlasBuilder.PlanQuest(fuse, atlasSize, retro, folder, copyName)
                     : AtlasBuilder.PlanFused(fuse);
 
             Progress(Lang.T("Fusing the meshes..."), 0.6f);
@@ -624,7 +627,7 @@ namespace BAAA
                 Avatar = copy.Avatar,
                 Label = original.name,
             };
-            return Make(o, record.Kind, record.AtlasSize, record, out made);
+            return Make(o, record.Kind, record.AtlasSize, record.Retro, record, out made);
         }
 
         private static void Progress(string what, float amount)

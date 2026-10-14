@@ -48,7 +48,7 @@ namespace BAAA
                     if (EditorUtility.DisplayDialog(T("Make decimated version"),
                         T("Makes a copy of {0} and swaps it in. Nothing changes until you move the slider.", Quote(o.Root.name)) + "\n\n" + T(OwnRisk),
                         T("Make it"), T("Cancel")))
-                        RunMake(o, CopyKind.Decimated, 0);
+                        RunMake(o, CopyKind.Decimated, 0, false);
                     GUIUtility.ExitGUI();
                 }
                 EndPanel();

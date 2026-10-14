@@ -80,7 +80,7 @@ namespace BAAA
             return LayOut(renderers, null).Notes;
         }
 
-        public static MaterialPlan PlanExtreme(List<Renderer> renderers, int atlasMax, GeneratedFolder folder, string baseName)
+        public static MaterialPlan PlanExtreme(List<Renderer> renderers, int atlasMax, bool retro, GeneratedFolder folder, string baseName)
         {
             var plan = new MaterialPlan();
             HashSet<Material> decalApart = SplitDecals(renderers, folder, baseName, plan);
@@ -104,7 +104,7 @@ namespace BAAA
                     cells.Add(c);
                 }
                 int side = PackCells(cells, atlasMax);
-                Material merged = BakeExtreme(layout, cells, side, renderers, folder, baseName);
+                Material merged = BakeExtreme(layout, cells, side, retro, renderers, folder, baseName);
                 plan.Slots.Add(merged);
                 plan.Atlases = 1;
                 plan.Merged = cells.Count - 1;
@@ -284,7 +284,7 @@ namespace BAAA
         // drawing the atlases and building the material
         // -------------------------------------------------------------------
 
-        private static Material BakeExtreme(Layout layout, List<Cell> cells, int side, List<Renderer> renderers, GeneratedFolder folder, string baseName)
+        private static Material BakeExtreme(Layout layout, List<Cell> cells, int side, bool retro, List<Renderer> renderers, GeneratedFolder folder, string baseName)
         {
             bool linearSpace = PlayerSettings.colorSpace == ColorSpace.Linear;
             bool anyNormal = layout.Members.Exists(m => m.Saved.T("_BumpMap") != null);
@@ -387,17 +387,17 @@ namespace BAAA
             foreach (Feature f in Features)
                 if (f.Mask != null) handled.Add(f.Mask);
 
-            Texture2D albedoTex = SaveAtlas(folder, baseName + " albedo.png", albedo, side, false, false, true);
+            Texture2D albedoTex = SaveAtlas(folder, baseName + " albedo.png", albedo, side, false, false, true, retro);
             SetAtlas(mat, "_MainTex", albedoTex);
             if (normals != null)
             {
-                SetAtlas(mat, "_BumpMap", SaveAtlas(folder, baseName + " normal.png", normals, side, true, true, false));
+                SetAtlas(mat, "_BumpMap", SaveAtlas(folder, baseName + " normal.png", normals, side, true, true, false, retro));
                 Set(mat, "_BumpScale", 1f);
             }
             else if (mat.HasProperty("_BumpMap")) mat.SetTexture("_BumpMap", null);
             if (glow != null)
             {
-                SetAtlas(mat, "_EmissionMap", SaveAtlas(folder, baseName + " emission.png", glow, side, false, false, false));
+                SetAtlas(mat, "_EmissionMap", SaveAtlas(folder, baseName + " emission.png", glow, side, false, false, false, retro));
                 if (mat.HasProperty("_EmissionMask")) mat.SetTexture("_EmissionMask", null);
                 mat.SetColor("_EmissionColor", Color.white);
                 Set(mat, "_EmissionStrength", 1f);
@@ -408,7 +408,7 @@ namespace BAAA
             foreach (var pair in masks)
             {
                 Feature f = pair.Key;
-                SetAtlas(mat, f.Mask, SaveAtlas(folder, baseName + " " + Readable(f.Mask) + ".png", pair.Value, side, true, false, false));
+                SetAtlas(mat, f.Mask, SaveAtlas(folder, baseName + " " + Readable(f.Mask) + ".png", pair.Value, side, true, false, false, retro));
                 if (!f.Packed)
                 {
                     Set(mat, f.Mask + "Channel", 0f);
@@ -425,7 +425,7 @@ namespace BAAA
                 foreach (string p in m.UvProps)
                     if (!handled.Contains(p) && !rest.Contains(p) && mat.HasProperty(p) && !OwnedByDroppedFeature(p, layout)
                         && layout.Members.Exists(x => x.Saved.T(p) != null) && TextureUse.Uses(mat, p)) rest.Add(p);
-            foreach (string p in rest) SetAtlas(mat, p, BakeProperty(p, cells, side, folder, baseName + " " + Readable(p)));
+            foreach (string p in rest) SetAtlas(mat, p, BakeProperty(p, cells, side, retro, folder, baseName + " " + Readable(p)));
 
             mat.shaderKeywords = new List<string>(keywords).ToArray();
             mat.renderQueue = queue;
@@ -483,15 +483,14 @@ namespace BAAA
             }
         }
 
-        private static Texture2D SaveAtlas(GeneratedFolder folder, string file, Color32[] pixels, int side, bool linear, bool normal, bool keepAlpha)
+        private static Texture2D SaveAtlas(GeneratedFolder folder, string file, Color32[] pixels, int side, bool linear, bool normal, bool keepAlpha, bool retro)
         {
             return folder.SavePng(pixels, side, linear, file, imp =>
             {
                 imp.textureType = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
                 imp.sRGBTexture = !linear;
                 imp.alphaSource = keepAlpha ? TextureImporterAlphaSource.FromInput : TextureImporterAlphaSource.None;
-                imp.mipmapEnabled = true;
-                imp.streamingMipmaps = true;
+                Filtering(imp, retro);
                 imp.wrapMode = TextureWrapMode.Clamp;
                 imp.maxTextureSize = side;
                 imp.textureCompression = TextureImporterCompression.Compressed;

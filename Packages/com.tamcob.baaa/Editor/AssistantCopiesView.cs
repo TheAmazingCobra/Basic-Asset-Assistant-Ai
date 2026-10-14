@@ -14,6 +14,8 @@ namespace BAAA
         private static readonly int[] ExtremeAtlasSizes = { 2048, 4096, 8192 };
         private static readonly string[] QuestAtlasLabels = { "1K", "2K", "4K" };
         private static readonly int[] QuestAtlasSizes = { 1024, 2048, 4096 };
+        private static readonly string[] RetroAtlasLabels = { "64", "128", "256", "512", "1K" };
+        private static readonly int[] RetroAtlasSizes = { 64, 128, 256, 512, 1024 };
 
         private static readonly string ExtremeTip = N("Toggles and color changers stop working. The colors you picked stay. Pick your pieces first. You can go back anytime.");
         private static readonly string QuestTip = N("No toggles or color changers on Quest. The colors you picked stay. Pick your pieces first. Your PC version keeps everything.");
@@ -29,6 +31,11 @@ namespace BAAA
 
         private int _extremeAtlas = 2048;
         private int _questAtlas = 1024;
+        // retro keeps a size of its own, so the normal pick is still there when it goes off
+        private bool _extremeRetro;
+        private bool _questRetro;
+        private int _extremeRetroSize = 256;
+        private int _questRetroSize = 256;
         private List<Optimizer> _optimizers;
         private QuestInfo _quest;
         private CopyCompare _compare;
@@ -147,7 +154,7 @@ namespace BAAA
             if (PrimaryButton(T("Make fused version"), true))
             {
                 if (EditorUtility.DisplayDialog(T("Make fused version"), T(ExtremeTip) + "\n\n" + T(OwnRisk) + "\n\n" + T("This can take a minute."), T("Make it"), T("Cancel")))
-                    RunMake(o, CopyKind.Fused, 0);
+                    RunMake(o, CopyKind.Fused, 0, false);
                 GUIUtility.ExitGUI();
             }
             EndPanel();
@@ -167,15 +174,25 @@ namespace BAAA
                 foreach (ExtremeNote n in _extremeNotes) GUILayout.Label("·  " + n.Text, _styleRow);
             }
             ScanSection(T("Atlas size"));
-            _extremeAtlas = PickSize(_extremeAtlas, ExtremeAtlasSizes, ExtremeAtlasLabels);
-            GUILayout.Space(4);
-            GUILayout.Label(T("2K is the lightest, 8K the sharpest. The atlas only gets as big as it needs."), _styleMini);
+            _extremeRetro = ToggleButton(T("Retro mode"), _extremeRetro);
+            if (_extremeRetro)
+            {
+                _extremeRetroSize = PickSize(_extremeRetroSize, RetroAtlasSizes, RetroAtlasLabels);
+                GUILayout.Space(4);
+                GUILayout.Label(T("Pixel look. Point filtering, no mipmaps. Every texture shares this atlas, so each one gets a slice of it."), _styleMini);
+            }
+            else
+            {
+                _extremeAtlas = PickSize(_extremeAtlas, ExtremeAtlasSizes, ExtremeAtlasLabels);
+                GUILayout.Space(4);
+                GUILayout.Label(T("2K is the lightest, 8K the sharpest. The atlas only gets as big as it needs."), _styleMini);
+            }
 
             GUILayout.Space(16);
             if (PrimaryButton(T("Make Extreme version"), true))
             {
                 if (EditorUtility.DisplayDialog(T("Make Extreme version"), T(ExtremeTip) + "\n\n" + T(OwnRisk) + "\n\n" + T("This can take a minute."), T("Make it"), T("Cancel")))
-                    RunMake(o, CopyKind.Extreme, _extremeAtlas);
+                    RunMake(o, CopyKind.Extreme, _extremeRetro ? _extremeRetroSize : _extremeAtlas, _extremeRetro);
                 GUIUtility.ExitGUI();
             }
             EndPanel();
@@ -248,10 +265,10 @@ namespace BAAA
             AdvancedAccepted = false;
         }
 
-        private void RunMake(Outfit o, CopyKind kind, int atlas)
+        private void RunMake(Outfit o, CopyKind kind, int atlas, bool retro)
         {
             GameObject made;
-            string error = OutfitCopies.Make(o, kind, atlas, null, out made);
+            string error = OutfitCopies.Make(o, kind, atlas, retro, null, out made);
             AfterCopyChange(made);
             if (error != null)
                 EditorUtility.DisplayDialog(T("Couldn't make the {0} version", KindName(kind)), error, T("OK"));
@@ -412,13 +429,23 @@ namespace BAAA
             WearingLine(T("Pick them in the Pieces tab."));
 
             ScanSection(T("Atlas size"));
-            _questAtlas = PickSize(_questAtlas, QuestAtlasSizes, QuestAtlasLabels);
-            GUILayout.Space(4);
-            // 4k on quest eats alot of headset memory, so the hint turns orange when its picked
-            if (_questAtlas == 4096)
-                GUILayout.Label(T("4K usually isn't recommended for Quest. It uses a lot of memory on a headset."), _styleWarn);
+            _questRetro = ToggleButton(T("Retro mode"), _questRetro);
+            if (_questRetro)
+            {
+                _questRetroSize = PickSize(_questRetroSize, RetroAtlasSizes, RetroAtlasLabels);
+                GUILayout.Space(4);
+                GUILayout.Label(T("Pixel look. Point filtering, no mipmaps. Every texture shares this atlas, so each one gets a slice of it."), _styleMini);
+            }
             else
-                GUILayout.Label(T("1K is lighter, 2K is sharper. 4K usually isn't recommended for Quest."), _styleMini);
+            {
+                _questAtlas = PickSize(_questAtlas, QuestAtlasSizes, QuestAtlasLabels);
+                GUILayout.Space(4);
+                // 4k on quest eats alot of headset memory, so the hint turns orange when its picked
+                if (_questAtlas == 4096)
+                    GUILayout.Label(T("4K usually isn't recommended for Quest. It uses a lot of memory on a headset."), _styleWarn);
+                else
+                    GUILayout.Label(T("1K is lighter, 2K is sharper. 4K usually isn't recommended for Quest."), _styleMini);
+            }
             GUILayout.Space(8);
             GUILayout.Label(T("Physbones start off. Your base avatar needs its own Quest version too."), _styleMini);
 
@@ -426,7 +453,7 @@ namespace BAAA
             if (PrimaryButton(T("Make Quest version"), true))
             {
                 if (EditorUtility.DisplayDialog(T("Make Quest version"), T(QuestTip) + "\n\n" + T(OwnRisk) + "\n\n" + T("This can take a minute."), T("Make it"), T("Cancel")))
-                    RunMake(o, CopyKind.Quest, _questAtlas);
+                    RunMake(o, CopyKind.Quest, _questRetro ? _questRetroSize : _questAtlas, _questRetro);
                 GUIUtility.ExitGUI();
             }
             EndPanel();
