@@ -343,7 +343,7 @@ namespace BAAA
                 // the goat can load after OnEnable when the project was still importing
                 if (titleContent.image == null) titleContent = new GUIContent("BAAA", goat);
             }
-            GUILayout.Label("<color=#FFD600>BAAA</color>", _styleWordmark, GUILayout.Height(28));
+            GUILayout.Label("<color=" + YellowTextHex + ">BAAA</color>", _styleWordmark, GUILayout.Height(28));
             GUILayout.Space(6);
             GUILayout.Label("BASIC ASSET ASSISTANT AI", _styleBrand, GUILayout.Height(28));
             GUILayout.FlexibleSpace();
