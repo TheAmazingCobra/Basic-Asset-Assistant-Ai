@@ -85,7 +85,7 @@ namespace BAAA
             GUILayout.BeginHorizontal();
             GUILayout.Label(T("Keep {0} triangles", Number((long)_target)), _styleTitleLine);
             GUILayout.FlexibleSpace();
-            if (_targetPending || _meshPending >= 0) Badge(T("Updating"), Tone.Yellow);
+            if (_targetPending || _meshPending >= 0) Badge(T("Updating"), Tone.Accent);
             GUILayout.EndHorizontal();
             GUILayout.Space(8);
             float next = Mathf.Round(Slider(_target, d.Floor, Mathf.Max(d.Floor + 1, d.FullTriangles)));

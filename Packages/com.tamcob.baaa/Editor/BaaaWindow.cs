@@ -345,7 +345,7 @@ namespace BAAA
                 // the goat can load after OnEnable when the project was still importing
                 if (titleContent.image == null) titleContent = new GUIContent("BAAA", goat);
             }
-            GUILayout.Label("<color=" + YellowTextHex + ">BAAA</color>", _styleWordmark, GUILayout.Height(28));
+            GUILayout.Label("<color=" + AccentHex + ">BAAA</color>", _styleWordmark, GUILayout.Height(28));
             GUILayout.Space(6);
             GUILayout.Label("BASIC ASSET ASSISTANT AI", _styleBrand, GUILayout.Height(28));
             GUILayout.FlexibleSpace();
@@ -400,7 +400,7 @@ namespace BAAA
             }
         }
 
-        // Mono labels in capitals, the open one in yellow. Wraps to a second
+        // Mono labels in capitals, the open one in brown. Wraps to a second
         // row when the window is narrow.
         private void DrawTabs()
         {
@@ -448,14 +448,14 @@ namespace BAAA
                 label.width -= 22f;
                 var count = new GUIContent(open > 99 ? "99" : open.ToString());
                 var chip = new Rect(label.xMax - 6f, r.center.y - 8f, 18f, 16f);
-                Rounded(chip, ColYellow, 0f, 8f);
+                Rounded(chip, ColAccent, 0f, 8f);
                 if (Event.current.type == EventType.Repaint) GUI.Label(chip, count, _styleTabCount);
             }
             if (Event.current.type == EventType.Repaint)
             {
                 GUIStyle style = LockedTab(i) ? (hover ? _styleTabLockedHover : _styleTabLocked) : active ? _styleTabActive : hover ? _styleTabHover : _styleTab;
                 GUI.Label(label, T(TabNames[i]).ToUpperInvariant(), style);
-                if (active) DrawRect(new Rect(r.x + 10f, r.yMax - 2f, r.width - 20f, 2f), ColYellow);
+                if (active) DrawRect(new Rect(r.x + 10f, r.yMax - 2f, r.width - 20f, 2f), ColAccent);
             }
             if (hover) Repaint();
             if (GUI.Button(r, GUIContent.none, GUIStyle.none)) OpenTab(i);
@@ -835,7 +835,7 @@ namespace BAAA
             {
                 case Rank.Excellent:
                 case Rank.Good: return Tone.Good;
-                case Rank.Medium: return Tone.Yellow;
+                case Rank.Medium: return Tone.Accent;
                 case Rank.Poor: return Tone.Warn;
                 default: return Tone.Bad;
             }

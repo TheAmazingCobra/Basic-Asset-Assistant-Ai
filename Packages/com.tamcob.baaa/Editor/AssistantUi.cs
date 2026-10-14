@@ -8,39 +8,38 @@ using UnityEngine;
 
 namespace BAAA
 {
-    // how the window looks. the colors are the goat's: its cream coat for the page,
-    // its outline for the ink, the horns for the quiet text, the pink of its ears
-    // behind bad news, and its yellow eyes as the only accent.
+    // how the window looks. the colors are the goat's: its cream coat for the page
+    // and the panels, its nose for the ink, the horns for the quiet text, the pink
+    // of its ears behind bad news, and a goat brown as the only accent.
     // the mono font comes from the OS so we dont have to ship a font file in every pack
     public partial class BaaaWindow
     {
-        private static readonly Color ColBg = new Color(0.949f, 0.933f, 0.894f);          // #F2EEE4, the face
-        private static readonly Color ColSurface = new Color(0.98f, 0.973f, 0.953f);      // #FAF8F3, the beard
-        private static readonly Color ColSurface2 = new Color(0.91f, 0.882f, 0.824f);     // #E8E1D2, the muzzle
+        private static readonly Color ColBg = new Color(0.91f, 0.882f, 0.824f);           // #E8E1D2, the cheek shade
+        private static readonly Color ColSurface = new Color(0.949f, 0.933f, 0.894f);     // #F2EEE4, the face
+        private static readonly Color ColSurface2 = new Color(0.882f, 0.855f, 0.792f);    // #E1DACA, the muzzle
         private static readonly Color ColLine = new Color(0.839f, 0.812f, 0.749f);        // #D6CFBF, the lines in the beard
         private static readonly Color ColLine2 = new Color(0.651f, 0.62f, 0.549f);        // #A69E8C, the horns
-        private static readonly Color ColText = new Color(0.169f, 0.153f, 0.137f);        // #2B2723, the outline
+        private static readonly Color ColText = new Color(0.231f, 0.212f, 0.188f);        // #3B3630, the nose, softer than the outline
         private static readonly Color ColMuted = new Color(0.353f, 0.325f, 0.278f);       // the horn ridges, in shadow
         private static readonly Color ColDim = new Color(0.494f, 0.467f, 0.408f);         // #7E7768, the horn ridges
-        // words drawn on top of yellow. the outline again, kept apart so it stays dark if the text color ever moves
-        private static readonly Color ColInk = new Color(0.169f, 0.153f, 0.137f);
-        private static readonly Color ColYellow = new Color(1f, 0.839f, 0f);              // #FFD600, the eyes
-        private static readonly Color ColYellowHover = new Color(0.902f, 0.749f, 0f);
-        private static readonly Color ColYellowOff = new Color(0.918f, 0.875f, 0.663f);
-        // the eyes are too pale to read as words on cream, so yellow text uses this deeper shade of them
-        private static readonly Color ColYellowText = new Color(0.56f, 0.46f, 0f);
-        private const string YellowTextHex = "#8F7500";
+        // words drawn on top of the brown. cream, kept apart from the page so they stay light if it ever moves
+        private static readonly Color ColOnAccent = new Color(0.969f, 0.953f, 0.918f);
+        // goat brown, the one accent. it reads as words on cream too, so there is no second shade for text
+        private static readonly Color ColAccent = new Color(0.42f, 0.322f, 0.251f);       // #6B5240
+        private static readonly Color ColAccentHover = new Color(0.49f, 0.388f, 0.314f);
+        private static readonly Color ColAccentOff = new Color(0.851f, 0.812f, 0.761f);
+        private const string AccentHex = "#6B5240";
         private static readonly Color ColGreen = new Color(0.137f, 0.459f, 0.224f);
         private static readonly Color ColWarn = new Color(0.62f, 0.333f, 0.086f);
         private static readonly Color ColRedSoft = new Color(0.71f, 0.259f, 0.243f);      // the mouth, deeper
-        private static readonly Color ColTip = new Color(0.976f, 0.925f, 0.729f);
-        private static readonly Color ColWarnBg = new Color(0.957f, 0.882f, 0.8f);
-        private static readonly Color ColRedBg = new Color(0.925f, 0.831f, 0.792f);       // #D7B6A6, the ears, lighter
-        private static readonly Color ColGreenBg = new Color(0.851f, 0.91f, 0.843f);
+        private static readonly Color ColTip = new Color(0.89f, 0.835f, 0.769f);          // a tan, behind the heads up notices
+        private static readonly Color ColWarnBg = new Color(0.937f, 0.851f, 0.745f);
+        private static readonly Color ColRedBg = new Color(0.914f, 0.812f, 0.765f);       // #D7B6A6, the ears, lighter
+        private static readonly Color ColGreenBg = new Color(0.835f, 0.89f, 0.82f);
 
         private const float Pad = 18f;
 
-        private enum Tone { Neutral, Yellow, Good, Warn, Bad }
+        private enum Tone { Neutral, Accent, Good, Warn, Bad }
 
         private struct TileData
         {
@@ -126,7 +125,7 @@ namespace BAAA
 
             _styleWordmark = new GUIStyle(EditorStyles.boldLabel) { fontSize = 15, richText = true, alignment = TextAnchor.MiddleLeft, normal = { textColor = ColText } };
             _styleBrand = new GUIStyle(EditorStyles.label) { font = mono, fontSize = 10, alignment = TextAnchor.MiddleLeft, normal = { textColor = ColDim } };
-            _styleKicker = new GUIStyle(EditorStyles.boldLabel) { font = mono, fontSize = 10, fontStyle = FontStyle.Bold, normal = { textColor = ColYellowText } };
+            _styleKicker = new GUIStyle(EditorStyles.boldLabel) { font = mono, fontSize = 10, fontStyle = FontStyle.Bold, normal = { textColor = ColAccent } };
             _styleHeading = new GUIStyle(EditorStyles.boldLabel) { fontSize = 22, richText = true, wordWrap = true, normal = { textColor = ColText } };
             _styleSubtitle = new GUIStyle(EditorStyles.wordWrappedLabel) { fontSize = 12, wordWrap = true, normal = { textColor = ColMuted } };
             _styleHeader = new GUIStyle(EditorStyles.boldLabel) { fontSize = 16, normal = { textColor = ColText } };
@@ -143,13 +142,13 @@ namespace BAAA
             _styleValue = new GUIStyle(EditorStyles.label) { fontSize = 12, wordWrap = true, normal = { textColor = ColText } };
             _styleTab = new GUIStyle(EditorStyles.label) { font = mono, fontSize = 11, fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter, normal = { textColor = ColDim } };
             _styleTabHover = new GUIStyle(_styleTab) { normal = { textColor = ColText } };
-            _styleTabActive = new GUIStyle(_styleTab) { normal = { textColor = ColYellowText } };
-            _styleTabCount = new GUIStyle(_styleTab) { fontSize = 9, normal = { textColor = ColInk } };
+            _styleTabActive = new GUIStyle(_styleTab) { normal = { textColor = ColAccent } };
+            _styleTabCount = new GUIStyle(_styleTab) { fontSize = 9, normal = { textColor = ColOnAccent } };
             // the advanced tabs before the agreement, grayed out well past the normal dim
             _styleTabLocked = new GUIStyle(_styleTab) { normal = { textColor = new Color(ColDim.r, ColDim.g, ColDim.b, 0.35f) } };
             _styleTabLockedHover = new GUIStyle(_styleTab) { normal = { textColor = new Color(ColDim.r, ColDim.g, ColDim.b, 0.6f) } };
             _styleSegment = new GUIStyle(EditorStyles.label) { fontSize = 12, alignment = TextAnchor.MiddleCenter, normal = { textColor = ColText } };
-            _styleSegmentActive = new GUIStyle(_styleSegment) { fontStyle = FontStyle.Bold, normal = { textColor = ColInk } };
+            _styleSegmentActive = new GUIStyle(_styleSegment) { fontStyle = FontStyle.Bold, normal = { textColor = ColOnAccent } };
             _styleSegmentOff = new GUIStyle(_styleSegment) { normal = { textColor = ColDim } };
             _styleBtnPrimary = new GUIStyle(EditorStyles.boldLabel)
             {
@@ -157,11 +156,11 @@ namespace BAAA
                 fontSize = 12,
                 fontStyle = FontStyle.Bold,
                 alignment = TextAnchor.MiddleCenter,
-                normal = { textColor = ColInk },
-                hover = { textColor = ColInk },
-                active = { textColor = ColInk },
+                normal = { textColor = ColOnAccent },
+                hover = { textColor = ColOnAccent },
+                active = { textColor = ColOnAccent },
             };
-            _styleBtnPrimaryOff = new GUIStyle(_styleBtnPrimary) { normal = { textColor = new Color(0.435f, 0.388f, 0.251f) } };
+            _styleBtnPrimaryOff = new GUIStyle(_styleBtnPrimary) { normal = { textColor = ColDim } };
             _styleBtnSmall = new GUIStyle(_styleBtnPrimary) { fontSize = 10, padding = new RectOffset(14, 14, 0, 0) };
             _styleBtnSecondary = new GUIStyle(_styleBtnPrimary) { fontSize = 10, normal = { textColor = ColText }, hover = { textColor = ColText }, active = { textColor = ColText } };
             _styleBtnSecondaryOff = new GUIStyle(_styleBtnSecondary) { normal = { textColor = ColDim } };
@@ -170,14 +169,14 @@ namespace BAAA
             _styleGood = new GUIStyle(EditorStyles.label) { fontSize = 12, normal = { textColor = ColGreen } };
             _styleNoticeText = new GUIStyle(EditorStyles.wordWrappedLabel) { fontSize = 12, wordWrap = true, normal = { textColor = ColText } };
             _styleTileLabel = new GUIStyle(EditorStyles.boldLabel) { font = mono, fontSize = 9, fontStyle = FontStyle.Bold, clipping = TextClipping.Clip, normal = { textColor = ColDim } };
-            _styleTileValue = new GUIStyle(EditorStyles.boldLabel) { fontSize = 20, clipping = TextClipping.Clip, normal = { textColor = ColYellowText } };
+            _styleTileValue = new GUIStyle(EditorStyles.boldLabel) { fontSize = 20, clipping = TextClipping.Clip, normal = { textColor = ColAccent } };
             _styleTileSub = new GUIStyle(EditorStyles.miniLabel) { fontSize = 10, clipping = TextClipping.Clip, normal = { textColor = ColDim } };
             _toneKickers.Clear();
             _toneValues.Clear();
             foreach (Tone t in Enum.GetValues(typeof(Tone)))
             {
-                _toneKickers[t] = new GUIStyle(_styleKicker) { normal = { textColor = ToneText(t) } };
-                _toneValues[t] = new GUIStyle(_styleTileValue) { normal = { textColor = t == Tone.Neutral ? ColText : ToneText(t) } };
+                _toneKickers[t] = new GUIStyle(_styleKicker) { normal = { textColor = ToneColor(t) } };
+                _toneValues[t] = new GUIStyle(_styleTileValue) { normal = { textColor = t == Tone.Neutral ? ColText : ToneColor(t) } };
             }
 
             // Pieces tab
@@ -213,25 +212,18 @@ namespace BAAA
         {
             switch (t)
             {
-                case Tone.Yellow: return ColYellow;
+                case Tone.Accent: return ColAccent;
                 case Tone.Good: return ColGreen;
                 case Tone.Warn: return ColWarn;
                 case Tone.Bad: return ColRedSoft;
                 default: return ColMuted;
             }
         }
-
-        // the tone for words. yellow goes deeper there, see ColYellowText
-        private static Color ToneText(Tone t)
-        {
-            return t == Tone.Yellow ? ColYellowText : ToneColor(t);
-        }
-
         private static Color ToneBg(Tone t)
         {
             switch (t)
             {
-                case Tone.Yellow: return ColTip;
+                case Tone.Accent: return ColTip;
                 case Tone.Good: return ColGreenBg;
                 case Tone.Warn: return ColWarnBg;
                 case Tone.Bad: return ColRedBg;
@@ -244,7 +236,7 @@ namespace BAAA
         // -------------------------------------------------------------------
 
         // A mono kicker, a big uppercase heading with its *starred* word in
-        // yellow, and a short line under it
+        // brown, and a short line under it
         private void PageHeader(string kicker, string heading, string subtitle)
         {
             GUILayout.Space(20);
@@ -262,7 +254,7 @@ namespace BAAA
         private static string Markup(string heading)
         {
             var sb = new StringBuilder();
-            bool yellow = false;
+            bool accent = false;
             foreach (char c in heading.ToUpperInvariant())
             {
                 if (c != '*')
@@ -270,10 +262,10 @@ namespace BAAA
                     sb.Append(c);
                     continue;
                 }
-                sb.Append(yellow ? "</color>" : "<color=" + YellowTextHex + ">");
-                yellow = !yellow;
+                sb.Append(accent ? "</color>" : "<color=" + AccentHex + ">");
+                accent = !accent;
             }
-            if (yellow) sb.Append("</color>");
+            if (accent) sb.Append("</color>");
             return sb.ToString();
         }
 
@@ -368,14 +360,14 @@ namespace BAAA
         // controls
         // -------------------------------------------------------------------
 
-        // The big yellow button, label in mono capitals
+        // The big brown button, label in mono capitals
         private bool PrimaryButton(string label, bool enabled)
         {
             Rect r = GUILayoutUtility.GetRect(10f, 38f, GUILayout.ExpandWidth(true));
             bool hover = enabled && r.Contains(Event.current.mousePosition);
             if (Event.current.type == EventType.Repaint)
             {
-                Rounded(r, !enabled ? ColYellowOff : hover ? ColYellowHover : ColYellow, 0f, 3f);
+                Rounded(r, !enabled ? ColAccentOff : hover ? ColAccentHover : ColAccent, 0f, 3f);
                 GUI.Label(r, label.ToUpperInvariant(), enabled ? _styleBtnPrimary : _styleBtnPrimaryOff);
             }
             if (hover) Repaint();
@@ -389,14 +381,14 @@ namespace BAAA
             bool hover = r.Contains(Event.current.mousePosition);
             if (Event.current.type == EventType.Repaint)
             {
-                Rounded(r, hover ? ColYellowHover : ColYellow, 0f, 3f);
+                Rounded(r, hover ? ColAccentHover : ColAccent, 0f, 3f);
                 GUI.Label(r, content, _styleBtnSmall);
             }
             if (hover) Repaint();
             return GUI.Button(r, GUIContent.none, GUIStyle.none);
         }
 
-        // an outlined button that lights up yellow under the mouse
+        // an outlined button that lights up brown under the mouse
         private bool SecondaryButton(string label, bool enabled = true)
         {
             var content = new GUIContent(label.ToUpperInvariant());
@@ -406,14 +398,14 @@ namespace BAAA
             if (Event.current.type == EventType.Repaint)
             {
                 Rounded(r, hover ? ColSurface2 : ColSurface, 0f, 3f);
-                Rounded(r, !enabled ? ColLine : hover ? ColYellow : ColLine2, 1f, 3f);
+                Rounded(r, !enabled ? ColLine : hover ? ColAccent : ColLine2, 1f, 3f);
                 GUI.Label(r, content, enabled ? _styleBtnSecondary : _styleBtnSecondaryOff);
             }
             if (hover) Repaint();
             return enabled && GUI.Button(r, GUIContent.none, GUIStyle.none);
         }
 
-        // A small chip: solid yellow for the good news, tinted for the rest
+        // A small chip: solid brown for the good news, tinted for the rest
         private void Badge(string text, Tone tone)
         {
             var content = new GUIContent(text.ToUpperInvariant());
@@ -426,11 +418,11 @@ namespace BAAA
         {
             if (Event.current.type != EventType.Repaint) return;
             Color c = ToneColor(tone);
-            bool solid = tone == Tone.Yellow;
+            bool solid = tone == Tone.Accent;
             Rounded(r, solid ? c : new Color(c.r, c.g, c.b, 0.12f), 0f, 3f);
             if (!solid) Rounded(r, new Color(c.r, c.g, c.b, 0.5f), 1f, 3f);
             Color before = _styleBadge.normal.textColor;
-            _styleBadge.normal.textColor = solid ? ColInk : c;
+            _styleBadge.normal.textColor = solid ? ColOnAccent : c;
             GUI.Label(r, content, _styleBadge);
             _styleBadge.normal.textColor = before;
         }
@@ -453,7 +445,7 @@ namespace BAAA
                 bool hover = !off && !active && r.Contains(Event.current.mousePosition);
                 if (Event.current.type == EventType.Repaint)
                 {
-                    if (active) Rounded(inner, ColYellow, 0f, 3f);
+                    if (active) Rounded(inner, ColAccent, 0f, 3f);
                     else if (hover) Rounded(inner, ColSurface2, 0f, 3f);
                     GUI.Label(r, labels[i], active ? _styleSegmentActive : off ? _styleSegmentOff : _styleSegment);
                 }
@@ -474,7 +466,7 @@ namespace BAAA
             return onSwitch || onLabel ? !on : on;
         }
 
-        // A yellow slider. Click or drag anywhere on it
+        // A brown slider. Click or drag anywhere on it
         private float Slider(float value, float min, float max)
         {
             Rect r = GUILayoutUtility.GetRect(10f, 26f, GUILayout.ExpandWidth(true));
@@ -510,8 +502,8 @@ namespace BAAA
                     float knob = Mathf.Lerp(x0, x1, Mathf.InverseLerp(min, max, value));
                     float cy = r.center.y;
                     Rounded(new Rect(x0, cy - 2f, x1 - x0, 4f), ColLine2, 0f, 2f);
-                    Rounded(new Rect(x0, cy - 2f, knob - x0, 4f), ColYellow, 0f, 2f);
-                    Rounded(new Rect(knob - 9f, cy - 9f, 18f, 18f), ColYellow, 0f, 9f);
+                    Rounded(new Rect(x0, cy - 2f, knob - x0, 4f), ColAccent, 0f, 2f);
+                    Rounded(new Rect(knob - 9f, cy - 9f, 18f, 18f), ColAccent, 0f, 9f);
                     Rounded(new Rect(knob - 4f, cy - 4f, 8f, 8f), ColBg, 0f, 4f);
                     break;
             }
@@ -519,7 +511,7 @@ namespace BAAA
             return Mathf.Clamp(value, min, max);
         }
 
-        // A row of stat tiles: mono label, big yellow number, a small line under it.
+        // A row of stat tiles: mono label, big brown number, a small line under it.
         private void Tiles(params TileData[] tiles)
         {
             GUILayout.BeginHorizontal();
@@ -540,7 +532,7 @@ namespace BAAA
             GUILayout.EndHorizontal();
         }
 
-        private static TileData Tile(string label, string value, string sub = null, Tone tone = Tone.Yellow)
+        private static TileData Tile(string label, string value, string sub = null, Tone tone = Tone.Accent)
         {
             return new TileData { Label = label, Value = value, Sub = sub, Tone = tone };
         }
@@ -612,12 +604,12 @@ namespace BAAA
             return Lang.Quote(s);
         }
 
-        // a numbered step: a small yellow chip with the number and the text next to it
+        // a numbered step: a small brown chip with the number and the text next to it
         private void Step(int number, string text)
         {
             GUILayout.BeginHorizontal();
             Rect chip = GUILayoutUtility.GetRect(20f, 20f, GUILayout.Width(20f), GUILayout.Height(20f));
-            Rounded(chip, ColYellow, 0f, 10f);
+            Rounded(chip, ColAccent, 0f, 10f);
             if (Event.current.type == EventType.Repaint) GUI.Label(chip, number.ToString(CultureInfo.InvariantCulture), _styleTabCount);
             GUILayout.Space(10);
             GUILayout.Label(text, _styleRow);

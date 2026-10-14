@@ -11,8 +11,8 @@ namespace BAAA
     {
         private const float SwitchWidth = 34f;
         private const float SwitchHeight = 18f;
-        private static readonly Color ColSwitchOff = new Color(0.812f, 0.78f, 0.71f);
-        private static readonly Color ColSwitchOffHover = new Color(0.761f, 0.729f, 0.655f);
+        private static readonly Color ColSwitchOff = new Color(0.788f, 0.749f, 0.682f);
+        private static readonly Color ColSwitchOffHover = new Color(0.741f, 0.698f, 0.627f);
 
         private List<OutfitFeature> _features;
         // Physbone groups opened to list their physbones one by one
@@ -241,15 +241,15 @@ namespace BAAA
             }
         }
 
-        // state: 0 off, 1 some on, 2 on. On is yellow with the knob right, off
+        // state: 0 off, 1 some on, 2 on. On is brown with the knob right, off
         // is gray with the knob left, and a mix sits in the middle. True when clicked
         private bool PillSwitch(Rect r, int state, bool canEdit)
         {
             bool hover = canEdit && r.Contains(Event.current.mousePosition);
             if (Event.current.type == EventType.Repaint)
             {
-                Color track = state == 2 ? (hover ? ColYellowHover : ColYellow) : state == 1 ? ColYellowOff : hover ? ColSwitchOffHover : ColSwitchOff;
-                Color knob = state == 2 ? ColBg : state == 1 ? ColYellow : ColSurface;
+                Color track = state == 2 ? (hover ? ColAccentHover : ColAccent) : state == 1 ? ColAccentOff : hover ? ColSwitchOffHover : ColSwitchOff;
+                Color knob = state == 2 ? ColBg : state == 1 ? ColAccent : ColSurface;
                 float d = r.height - 6f;
                 float x = state == 2 ? r.xMax - 3f - d : state == 1 ? r.center.x - d * 0.5f : r.x + 3f;
                 float alpha = canEdit ? 1f : 0.35f;

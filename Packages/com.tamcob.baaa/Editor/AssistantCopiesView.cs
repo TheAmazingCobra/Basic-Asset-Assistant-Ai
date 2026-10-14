@@ -82,7 +82,7 @@ namespace BAAA
                 GUILayout.FlexibleSpace();
                 if (!opt.Installed) Badge(T("Not available"), Tone.Neutral);
                 else if (opt.OnAvatar) Badge(T("On avatar"), Tone.Good);
-                else Badge(T("To add"), Tone.Yellow);
+                else Badge(T("To add"), Tone.Accent);
                 GUILayout.EndHorizontal();
                 GUILayout.Space(2);
                 GUILayout.Label(T(opt.Why), _styleMini);
@@ -137,7 +137,7 @@ namespace BAAA
                 return;
             }
 
-            Notice(Tone.Yellow, T("Heads up"), T(ExtremeTip));
+            Notice(Tone.Accent, T("Heads up"), T(ExtremeTip));
             Notice(Tone.Warn, T("At your own risk"), T(OwnRisk));
             string blocked = CopyBlocked(o, CopyKind.Fused);
             if (blocked != null)
@@ -305,8 +305,8 @@ namespace BAAA
         private void DrawCopyPanel(Outfit o)
         {
             CopyKind kind = o.Copy.Kind;
-            BeginPanel(ColYellow);
-            Badge(T("{0} version", KindName(kind)), Tone.Yellow);
+            BeginPanel(ColAccent);
+            Badge(T("{0} version", KindName(kind)), Tone.Accent);
             GUILayout.Space(8);
             GUILayout.Label(T("Made from {0}", Quote(o.Copy.OriginalName)), _styleTitle);
             GUILayout.Space(3);
@@ -414,7 +414,7 @@ namespace BAAA
 
             BeginPanel();
             PanelTitle(T("Quest version"), T("One mesh, one atlas, VRChat's Quest shader."));
-            Notice(Tone.Yellow, T("Heads up"), T(QuestTip));
+            Notice(Tone.Accent, T("Heads up"), T(QuestTip));
             Notice(Tone.Warn, T("At your own risk"), T(OwnRisk));
 
             string blocked = CopyBlocked(o, CopyKind.Quest);
@@ -470,11 +470,11 @@ namespace BAAA
             }
 
             Tiles(
-                Tile(T("Triangles"), Number(q.Triangles), T("limit {0}", Number(QuestTriangles)), q.Triangles > QuestTriangles ? Tone.Warn : Tone.Yellow),
-                Tile(T("PhysBones"), Number(q.On.Count), T("limit {0}", Number(QuestPhysBones)), q.On.Count > QuestPhysBones ? Tone.Warn : Tone.Yellow),
-                Tile(T("Skinned meshes"), Number(q.SkinnedMeshes), T("limit {0}", Number(QuestSkinnedMeshes)), q.SkinnedMeshes > QuestSkinnedMeshes ? Tone.Warn : Tone.Yellow),
-                Tile(T("Material slots"), Number(q.MaterialSlots), T("limit {0}", Number(QuestMaterialSlots)), q.MaterialSlots > QuestMaterialSlots ? Tone.Warn : Tone.Yellow),
-                Tile(T("VRAM"), Megabytes(q.TextureBytes), T("limit {0}", Megabytes(QuestTextureBytes)), q.TextureBytes > QuestTextureBytes ? Tone.Warn : Tone.Yellow));
+                Tile(T("Triangles"), Number(q.Triangles), T("limit {0}", Number(QuestTriangles)), q.Triangles > QuestTriangles ? Tone.Warn : Tone.Accent),
+                Tile(T("PhysBones"), Number(q.On.Count), T("limit {0}", Number(QuestPhysBones)), q.On.Count > QuestPhysBones ? Tone.Warn : Tone.Accent),
+                Tile(T("Skinned meshes"), Number(q.SkinnedMeshes), T("limit {0}", Number(QuestSkinnedMeshes)), q.SkinnedMeshes > QuestSkinnedMeshes ? Tone.Warn : Tone.Accent),
+                Tile(T("Material slots"), Number(q.MaterialSlots), T("limit {0}", Number(QuestMaterialSlots)), q.MaterialSlots > QuestMaterialSlots ? Tone.Warn : Tone.Accent),
+                Tile(T("VRAM"), Megabytes(q.TextureBytes), T("limit {0}", Megabytes(QuestTextureBytes)), q.TextureBytes > QuestTextureBytes ? Tone.Warn : Tone.Accent));
             GUILayout.Space(8);
             GUILayout.Label(T("These are Quest's Poor limits, body included. Quest hides Poor and Very Poor avatars by default, so lower is better."), _styleMini);
             if (q.Triangles > QuestTriangles || q.On.Count > QuestPhysBones || q.TextureBytes > QuestTextureBytes)

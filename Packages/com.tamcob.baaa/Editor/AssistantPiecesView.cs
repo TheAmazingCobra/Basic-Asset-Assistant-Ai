@@ -17,7 +17,7 @@ namespace BAAA
         private static readonly BodyRegion[] LeftSide = { BodyRegion.Head, BodyRegion.Arms, BodyRegion.Hands, BodyRegion.Legs };
         private static readonly BodyRegion[] RightSide = { BodyRegion.Neck, BodyRegion.Torso, BodyRegion.Hips, BodyRegion.Tail, BodyRegion.Feet };
         private static readonly Color ColFigureBase = new Color(0.651f, 0.62f, 0.549f, 1f);
-        private static readonly Color ColShade = new Color(0.949f, 0.933f, 0.894f, 0.78f);
+        private static readonly Color ColShade = new Color(0.91f, 0.882f, 0.824f, 0.78f);
 
         private List<Piece> _pieces;
         private float _piecesWidth;
@@ -278,7 +278,7 @@ namespace BAAA
             }
         }
 
-        // Unity's rig figure in yellow: a dark base, each body part tinted on top,
+        // Unity's rig figure in brown: a horn-gray base, each body part tinted on top,
         // and the part being pointed at drawn over and over until it glows.
         private void DrawFigure(Rect f, BodyRegion? lit, bool tail)
         {
@@ -287,7 +287,7 @@ namespace BAAA
             if (tail)
             {
                 bool tailLit = lit == BodyRegion.Tail;
-                Handles.color = tailLit ? ColYellow : new Color(ColYellow.r, ColYellow.g, ColYellow.b, 0.45f);
+                Handles.color = tailLit ? ColAccent : new Color(ColAccent.r, ColAccent.g, ColAccent.b, 0.45f);
                 Handles.DrawAAPolyLine(f.width * (tailLit ? 0.05f : 0.04f),
                     Point(f, 0.52f, 0.47f), Point(f, 0.64f, 0.51f), Point(f, 0.74f, 0.57f), Point(f, 0.80f, 0.66f));
             }
@@ -297,7 +297,7 @@ namespace BAAA
             GUI.color = ColFigureBase;
             GUI.DrawTexture(f, _figureSilhouette, ScaleMode.StretchToFill, true);
             string[] litParts = PartsFor(lit);
-            GUI.color = ColYellow;
+            GUI.color = ColAccent;
             foreach (string part in FigureParts)
             {
                 int passes = Array.IndexOf(litParts, part) >= 0 ? 6 : 1;
@@ -318,17 +318,17 @@ namespace BAAA
             {
                 var from = new Vector3(b.Left ? b.Rect.xMax + 4f : b.Rect.x - 4f, b.Rect.y + 7f, 0f);
                 var to = new Vector3(b.Anchor.x, b.Anchor.y, 0f);
-                Handles.color = lit ? ColYellow : ColLine;
+                Handles.color = lit ? ColAccent : ColLine;
                 Handles.DrawAAPolyLine(1.5f, from, to);
                 // A ring with a dot, like the bone markers in Unity's mapping view.
-                Handles.color = lit ? ColInk : ColYellow;
+                Handles.color = lit ? ColText : ColAccent;
                 Handles.DrawWireDisc(to, Vector3.forward, 4.5f, 1.5f);
                 Handles.DrawSolidDisc(to, Vector3.forward, 1.8f);
             }
             var header = new GUIStyle(_styleTileLabel)
             {
                 alignment = b.Left ? TextAnchor.UpperRight : TextAnchor.UpperLeft,
-                normal = { textColor = lit ? ColYellowText : ColDim },
+                normal = { textColor = lit ? ColAccent : ColDim },
             };
             GUI.Label(new Rect(b.Rect.x, b.Rect.y, b.Rect.width, BlockHeader), RegionName(b.Region).ToUpperInvariant(), header);
             for (int i = 0; i < b.Pieces.Count; i++) DrawTile(TileRect(b, i), b.Pieces[i], canEdit, hover == b.Pieces[i]);
@@ -337,7 +337,7 @@ namespace BAAA
         private void DrawTile(Rect r, Piece p, bool canEdit, bool hover)
         {
             DrawRect(r, ColSurface);
-            Color edge = hover && canEdit ? ColYellow : p.Dropped ? ColRedSoft : ColLine;
+            Color edge = hover && canEdit ? ColAccent : p.Dropped ? ColRedSoft : ColLine;
             DrawRect(new Rect(r.x, r.y, r.width, 1f), edge);
             DrawRect(new Rect(r.x, r.yMax - 1f, r.width, 1f), edge);
             DrawRect(new Rect(r.x, r.y, 1f, r.height), edge);
